@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/dialogNameLayout"
+        android:weightSum="2">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="Номер"
+            android:gravity="center"
+            android:id="@+id/dialogNumber"
+            android:inputType="number"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:imeOptions="actionNext"
+            android:layout_weight="0.2"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="@string/fio_col_title"
+            android:gravity="center"
+            android:id="@+id/dialogName"
+            android:inputType="textCapWords"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:imeOptions="actionNext"
+            android:layout_weight="1.8"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/dialogBirthdayCountryLayout"
+        android:layout_below="@+id/dialogNameLayout"
+        android:weightSum="2">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/year_col_title"
+            android:id="@+id/dialogBirthday"
+            android:inputType="number"
+            android:maxLength="4"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:imeOptions="actionNext"/>
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/country_col_title"
+            android:id="@+id/dialogCountry"
+            android:inputType="textCapSentences"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:imeOptions="actionDone"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/dialogGroupColorLayout"
+        android:layout_below="@id/dialogBirthdayCountryLayout"
+        android:layout_margin="3dp"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/add_participant_dialog_group_text"
+            android:layout_weight="0.2"
+            android:gravity="center_horizontal|center_vertical"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:id="@+id/spinnerOfGroup"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/add_participant_dialog_color_text"
+            android:layout_weight="0.2"
+            android:gravity="center_horizontal|center_vertical"
+            android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#000000"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_margin="1.5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/black"
+                android:onClick="OnClickColorParticipant"
+                android:id="@+id/dialogColor"/>
+
+        </FrameLayout>
+    </LinearLayout>
+
+</RelativeLayout>

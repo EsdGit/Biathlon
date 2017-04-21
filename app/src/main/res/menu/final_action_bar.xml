@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="@string/final_activity_place_sort"
+        android:id="@+id/action_bar_final_activity_place_sort"
+        android:showAsAction="never"
+        android:orderInCategory="100"
+        android:visible="true"/>
+
+    <item
+        android:title="@string/final_activity_name_sort"
+        android:id="@+id/action_bar_final_activity_name_sort"
+        android:showAsAction="never"
+        android:orderInCategory="100"
+        android:visible="true"/>
+
+
+    <item
+        android:title="@string/final_activity_group_sort"
+        android:id="@+id/action_bar_final_activity_group_sort"
+        android:showAsAction="never"
+        android:orderInCategory="100"
+        android:visible="true" />
+
+    <item
+        android:title="@string/final_activity_save"
+        android:icon="@drawable/ic_save"
+        android:id="@+id/action_bar_final_activity_save"
+        app:showAsAction="always"
+        android:orderInCategory="100"
+        android:visible="true"/>
+
+    <item
+        android:icon="@drawable/ic_send"
+        android:title="@string/final_activity_send"
+        app:showAsAction="always"
+        android:id="@+id/action_bar_final_activity_send"
+        android:orderInCategory="100"
+        android:visible="true">
+
+        <menu>
+            <item
+                android:icon="@drawable/whatsapp"
+                android:title="@string/final_activity_send_by_whatsapp"
+                android:id="@+id/action_bar_final_activity_send_by_whatsapp"
+                android:showAsAction="never"
+                android:orderInCategory="100"
+                android:visible="true"/>
+
+            <item
+                android:icon="@drawable/mail"
+                android:title="@string/final_activity_send_by_mail"
+                android:id="@+id/action_bar_final_activity_send_by_mail"
+                android:showAsAction="never"
+                android:orderInCategory="100"
+                android:visible="true"/>
+
+            <item
+                android:icon="@drawable/googledrive"
+                android:title="@string/final_activity_send_by_googledrive"
+                android:id="@+id/action_bar_final_activity_send_by_googledrive"
+                android:showAsAction="never"
+                android:orderInCategory="100"
+                android:visible="true"/>
+        </menu>
+    </item>
+
+</menu>

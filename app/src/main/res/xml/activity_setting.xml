@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="preference_screen">
+
+
+    <SwitchPreference
+        android:key="typeCompetition"
+        android:title="@string/summary_international_competition"
+        android:summary="@string/summary_type_competition"
+        android:checked="false"/>
+
+    <EditTextPreference
+        android:key="nameCompetitionSetting"
+        android:summary="@string/main_activity_name_col"
+        android:title="@string/main_activity_name_col"
+        android:dialogTitle="@string/setting_activity_title_name_competition"/>
+
+    <Preference
+        android:key="dataSetting"
+        android:title="@string/setting_activity_title_set_data_competition"
+        android:summary="@string/summary_data_competition"/>
+
+    <Preference
+        android:key="startTimer"
+        android:title="@string/setting_activity_title_time_to_start"
+        android:summary="@string/summary_time_to_start"/>
+
+    <ListPreference
+        android:key="typeStartSetting"
+        android:title="@string/setting_activity_title_type_start"
+        android:dialogTitle="@string/dialog_title_type_start"
+        android:summary="@string/summary_type_start"
+        android:entries="@array/type_start"
+        android:entryValues="@array/type_start"/>
+
+    <Preference
+        android:key="firstNumberStart"
+        android:title="@string/setting_activity_title_number_start"
+        android:summary="@string/summary_number_start"/>
+
+    <Preference
+        android:key="intervalSetting"
+        android:summary="@string/summary_interval"
+        android:title="@string/setting_activity_title_interval"
+        android:dialogTitle="@string/dialog_title_interval"/>
+
+    <Preference
+        android:key="secondIntervalSetting"
+        android:summary="@string/summary_interval"
+        android:title="@string/setting_activity_title_second_interval"
+        android:dialogTitle="@string/dialog_title_interval"/>
+
+    <Preference
+        android:key="group"
+        android:title="@string/setting_activity_title_group"
+        android:summary="@string/summary_group"
+        android:dialogTitle="@string/dialog_title_group"/>
+
+    <Preference
+        android:key="fine"
+        android:title="@string/setting_activity_title_fine"
+        android:summary="@string/summary_fine"
+        android:dialogTitle="@string/dialog_fine_title"/>
+
+    <EditTextPreference
+        android:key="countCheckPointSetting"
+        android:title="@string/setting_activity_title_checkpoint"
+        android:summary="@string/summary_checkpoint"
+        android:dialogTitle="@string/dialog_title_checkpoint"/>
+
+
+</PreferenceScreen>

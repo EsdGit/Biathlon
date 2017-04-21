@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dialog_title_fine"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_fine_title_competition"
+            android:textSize="@dimen/normal_text_size"
+            android:textColor="#000000"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@id/textSeekBar">-->
+
+        <!--<SeekBar-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/seek_bar_competition_activity"-->
+            <!--android:max="20"-->
+            <!--android:theme="@style/Widget.AppCompat.SeekBar.Discrete"/>-->
+
+    <!--</LinearLayout>-->
+
+    <GridView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dialog_title_fine"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/fineGridView"
+        android:columnWidth="35dp"
+        android:gravity="center"
+        android:horizontalSpacing="5dp"
+        android:numColumns="5"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="5dp">
+
+    </GridView>
+
+
+</RelativeLayout>
