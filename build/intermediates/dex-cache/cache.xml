@@ -3,76 +3,265 @@
 
     <item
         is-multidex="true"
-        jar="/root/.android/build-cache/11aa3c07827dca7111648e5f2f3ef25ef06091fc/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="b64dd5f01bc37de289f90fd59299b0c76d119611">
-        <dex dex="/home/oleg/BiathlonTimer/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3e0e8830c90d4da3a53a347ae0630f8b1f796fd5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/root/.android/build-cache/94b227517b805ef2623aedb835ba3231ce1bd1e7/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d16c820d6943f6bbfe74699ca2ce2ad4dd44829e">
-        <dex dex="/home/oleg/BiathlonTimer/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_bd7a9c9ee3636b35c71cbec3d71bb578cf1ec6fe/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/root/.gradle/caches/modules-2/files-2.1/io.realm/realm-annotations/2.2.1/3095c5145d7966e555c113c6a3fc33a107badc80/realm-annotations-2.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="3095c5145d7966e555c113c6a3fc33a107badc80">
-        <dex dex="/home/oleg/BiathlonTimer/app/build/intermediates/transforms/dex/debug/folders/1000/10/realm-annotations-2.2.1_76ca7b7ab30ce885637e852ea9fef99743acd26b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/oleg/BiathlonTimer/app/libs/poi-ooxml-3.15.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e2800856735b07b8edd417aee07685470216a00f">
-        <dex dex="/home/oleg/BiathlonTimer/app/build/intermediates/transforms/dex/debug/folders/1000/2/poi-ooxml-3.15_446cdb43fab92ad0585899da3482046885733627/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/oleg/BiathlonTimer/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="706daec33955beddd593cf235adc274ce9ad4710">
-        <dex dex="/home/oleg/BiathlonTimer/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_bab51a0737f0c1ddf01069d150d92bbe4b30c933/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/oleg/BiathlonTimer/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
-        <dex dex="/home/oleg/BiathlonTimer/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_26f04932b90133b54260f8a96047b1b51564c607/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/oleg/BiathlonTimer/app/libs/poi-3.15.jar"
+        jar="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\libs\poi-3.15.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="965bba8899988008bb2341e300347de62aad5391">
-        <dex dex="/home/oleg/BiathlonTimer/app/build/intermediates/transforms/dex/debug/folders/1000/2/poi-3.15_8c2d6107e57200928086b03d0e76ac3386d5e92c/classes.dex" />
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\2\poi-3.15_11812311a1cdaa1c8e4185c98a1b029d8bc9824c\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/oleg/BiathlonTimer/app/libs/poi-ooxml-schemas-3.15.jar"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\f2e9411353fe05319e5031c2d82fb696f039612b\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f935393d522d17c5667963d442793e9554ff11b8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.gradle\caches\modules-2\files-2.1\org.greenrobot\eventbus\3.0.0\ddd99896e9569eaababbe81b35d80e1b91c4ad85\eventbus-3.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ddd99896e9569eaababbe81b35d80e1b91c4ad85">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\eventbus-3.0.0_4be5b25807effc077636e63cce30d7c957727be1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\libs\poi-ooxml-schemas-3.15.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="de4a50ca39de48a19606b35644ecadb2f733c479">
-        <dex dex="/home/oleg/BiathlonTimer/app/build/intermediates/transforms/dex/debug/folders/1000/2/poi-ooxml-schemas-3.15_db98ac8a5d3bebdc5e7c48cd1be8b292849dcae8/classes2.dex" />
-        <dex dex="/home/oleg/BiathlonTimer/app/build/intermediates/transforms/dex/debug/folders/1000/2/poi-ooxml-schemas-3.15_db98ac8a5d3bebdc5e7c48cd1be8b292849dcae8/classes.dex" />
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\2\poi-ooxml-schemas-3.15_d6c265184ed55ef875522cae71b579387980eb69\classes.dex" />
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\2\poi-ooxml-schemas-3.15_d6c265184ed55ef875522cae71b579387980eb69\classes2.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\be9f0a8d1f7c951056e2bb569414c05981496b1b\output\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_8de0fd36694b29da898b812f98fa193d4caf27a4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\0bb705ccf88fcceef369f61b70f48c2e33fbbb49\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b64dd5f01bc37de289f90fd59299b0c76d119611">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_46e9b764b787d7c6539c5e056bf9cc7bbea07ae4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.2.1\support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.2.1_f52745c0296b63e085ba59435fc5e317c64f11ce\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\e069727ccfafd3b56ecabcaad8955250a837a190\output\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_a76093ef6bb87c48063a3aca7b657218527d00bc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\da4b508356be250fc8f5af77e31451a604ce133c\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b0507a6aa74ec66603b0b521865c619cc24eba0e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\e069727ccfafd3b56ecabcaad8955250a837a190\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_d33c51611819ecda3a9904529bd51bbe687b5fa0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\ecda45d27bd4753ef7907d2b5c33331628ec001b\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2e4e7b23e9f05010119386fc9eceb4c95d4b6945\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\0520c6f05d1623fa3e8b9885ba0e4cadbdfcd833\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7c35bd57b4a1a623828e3b9d45b5795aa7a97f91\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\422e2e6a2c9c408664115bbdd4dbada7d7065a28\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="215e93ef1f9c51b5e6c2801d24074217803e1dd2">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1fd31ded159aa8f9d82057e40b3c7c6b10b14317\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\b1840cd78e1aaa4fcd5a5485597206ebba190709\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d16c820d6943f6bbfe74699ca2ce2ad4dd44829e">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_768a09a4a4ab718ed14d45edaf76d37a6fa6ac0a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\288f683464a76e33a83cacf35da9f88a6c45f965\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_37775a0fe1a8e8c508d42631aeadfeb3b95071bd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\453a2d0e15f58c16d546be1e33560054818b0a3c\output\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_4079796708043783034ef68901e2536bdd62ecbe\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.gradle\caches\modules-2\files-2.1\io.realm\realm-annotations\2.2.1\3095c5145d7966e555c113c6a3fc33a107badc80\realm-annotations-2.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3095c5145d7966e555c113c6a3fc33a107badc80">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\realm-annotations-2.2.1_8c10a3191619f3e8a5418f073e4c7af64ca20659\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\be9f0a8d1f7c951056e2bb569414c05981496b1b\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f4c33e4a503b87a9c24e6056932ad0a9ebea8dc6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\cac0e39ea71303ba5c9059be9f86cde6f48ea6a9\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_dc3518c095dd172af161092c601f85971f1a7be3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\453a2d0e15f58c16d546be1e33560054818b0a3c\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8892f8db9eb502bf8f9f72b167a3a71a348df981\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e88ef01062eed798fe759de78f00c4a9fefe2bdb">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_6ac8db4caa5af5ade5989a377bb958534b3192c8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\2ed672153482dd0ad1d449f9dec60a96b301adc3\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="78ea232052df889856dcb7b7b542707c89bb3bfb">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a314c6744e9236948adf3906b037af4fc07384e4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_b2c93245be6e470b7c06b76b81b5a37bf6eb5470\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\c1b0fb171e2635d2064304af77d38bdf51134917\output\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_2270315409be73b4e06b9c9144eca798af518f35\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\libs\poi-ooxml-3.15.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e2800856735b07b8edd417aee07685470216a00f">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\2\poi-ooxml-3.15_05af49f8e1668cfb9ca44a1361c9365dd0d26e4c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\da4b508356be250fc8f5af77e31451a604ce133c\output\jars\libs\internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.2.1_c4e527bda3062a579c7b1bd923e23d6395d8520b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\c1b0fb171e2635d2064304af77d38bdf51134917\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1a7d266e4bb00ff4d6ab99756d75da8decac44d5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\f81715cbf0b587f0de7aeaddd117519b83437238\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b4c821c916d47dc67f51fe5fec0458f085097310\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\NIL_RIMS_4\.android\build-cache\ffcbc84d5e10d1febddbb6cd32fb47e3d43872ec\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e388595587aab9cb9f919f90de90b1831db908f5">
+        <dex dex="C:\Users\NIL_RIMS_4\Documents\GitHub\Biathlon\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_20dbfd491c150d9aad96551accf4465ad562fbb9\classes.dex" />
     </item>
 
 </items>
