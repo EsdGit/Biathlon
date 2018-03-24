@@ -171,19 +171,19 @@ public class FinalActivity extends AppCompatActivity {
         {
             case R.id.action_bar_final_activity_place_sort:
                 SortBy("_place", item.isChecked());
-                Toast.makeText(getApplicationContext(),"Сортировка по месту",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Сортировка по месту",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_bar_final_activity_name_sort:
                 SortBy("name", item.isChecked());
-                Toast.makeText(getApplicationContext(),"Сортировка по имени",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Сортировка по имени",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_bar_final_activity_save:
                 Intent intentFolders = new Intent(this, FolderPicker.class);
                 startActivityForResult(intentFolders,1);
-                Toast.makeText(getApplicationContext(),"Сохранить файл",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Сохранить файл",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_bar_final_activity_send:
-                Toast.makeText(getApplicationContext(),"Отправка",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Отправка",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_bar_final_activity_send_by_whatsapp:
 
@@ -193,7 +193,7 @@ public class FinalActivity extends AppCompatActivity {
                 intent.setPackage("com.whatsapp");
                 intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
                 startActivity(Intent.createChooser(intent, "Выбор"));
-                Toast.makeText(getApplicationContext(),"Отправка через WhatsApp",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Отправка через WhatsApp",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_bar_final_activity_send_by_mail:
                 Intent intent1 = new Intent(Intent.ACTION_SEND);
@@ -202,7 +202,7 @@ public class FinalActivity extends AppCompatActivity {
                 intent1.setPackage("com.google.android.gm");
                 intent1.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file1));
                 startActivity(Intent.createChooser(intent1, "Выбор"));
-                Toast.makeText(getApplicationContext(),"Отправка через Mail",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Отправка через Mail",Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.action_bar_final_activity_send_by_googledrive:
@@ -213,7 +213,7 @@ public class FinalActivity extends AppCompatActivity {
                 driveIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(fileExc));
                 startActivity(Intent.createChooser(driveIntent, "Выбор"));
 
-                Toast.makeText(getApplicationContext(),"GoogleDrive",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"GoogleDrive",Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.action_bar_final_activity_group_sort:
