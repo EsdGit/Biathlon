@@ -46,10 +46,14 @@ import com.esd.esd.biathlontimer.Sportsman;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 public class ViewPagerActivity extends AppCompatActivity
 {
+    //Тест
+    private Spinner _countrySpinner;
+
     private static RecyclerViewLocalDatabaseAdapter _recyclerViewLocalDatabaseAdapter;
     private static RecyclerViewDatabaseAdapter _recyclerViewDatabaseAdapter;
 
@@ -394,6 +398,22 @@ public class ViewPagerActivity extends AppCompatActivity
     */
     public void OnClick(View view)
     {
+        String[] countryCode = Locale.getISOCountries();
+        String[] flags = new String[countryCode.length];
+        int firstLetter;
+        int secondLetter;
+        String[] local = getResources().getStringArray(R.array.name_country);
+        for(int i = 0; i < countryCode.length; i++)
+        {
+            firstLetter = Character.codePointAt(countryCode[i], 0) - 0x41 + 0x1F1E6;
+            secondLetter = Character.codePointAt(countryCode[i], 1) - 0x41 + 0x1F1E6;
+            flags[i] = new String(new String(Character.toChars(firstLetter)) + new String(Character.toChars(secondLetter)) + " (" + countryCode[i] + ")" + "\t" + local[i]);
+        }
+        ArrayAdapter<String> adapterGroupAddParticipant = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, flags);
+        adapterGroupAddParticipant.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        _countrySpinner.setAdapter(adapterGroupAddParticipant);
+        _countrySpinner.setSelection(0);
+        _countrySpinner.setScrollContainer(true);
         _addDialog.show();
     }
 
@@ -439,6 +459,7 @@ public class ViewPagerActivity extends AppCompatActivity
         _spinnerOfGroupRename = (Spinner) _renameForm.findViewById(R.id.spinnerOfGroup);
 
         _dialogForm = inflater.inflate(R.layout.dialog_activity_add_participant, null);
+
         _recyclerView = (RecyclerView) page1.findViewById(R.id.gridViewParticipantList);
 
         _headParticipant = (LinearLayout) page1.findViewById(R.id.headTableParticipantListLayout);
@@ -452,6 +473,8 @@ public class ViewPagerActivity extends AppCompatActivity
         _deleteParticipantImBtn = (ImageButton) page1.findViewById(R.id.delete_participant);
         _editParticipantImBtn = (ImageButton) page1.findViewById(R.id.edit_participant);
 
+
+        _countrySpinner = (Spinner) _dialogForm.findViewById(R.id.spinnerOfCountry);
         _nameDialog = (EditText) _dialogForm.findViewById(R.id.dialogName);
         _birthdayDialog = (EditText) _dialogForm.findViewById(R.id.dialogBirthday);
         _countryDialog = (EditText) _dialogForm.findViewById(R.id.dialogCountry);

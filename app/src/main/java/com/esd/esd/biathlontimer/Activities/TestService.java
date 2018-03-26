@@ -133,24 +133,27 @@ public class TestService extends Service {
     });
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId)
-    {
-        if(_myIntent == null) _myIntent = intent;
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        if (_myIntent == null) _myIntent = intent;
         _tableAdapter = CompetitionsActivity.GetCompetitionTableAdapter();
         RealmCompetitionSaver compSaver = new RealmCompetitionSaver(this, "COMPETITIONS");
         _currentCompetition = compSaver.GetCompetition(intent.getStringExtra("CompetitionName"), intent.getStringExtra("CompetitionDate"));
         SingleStart = getResources().getString(R.string.item_type_single_start);
         PairStart = getResources().getString(R.string.item_type_double_start);
-        _currentInterval = new Time();
-        _currentInterval.second = Integer.valueOf(_currentCompetition.getInterval().split(":")[1]);
-        _currentInterval.minute = Integer.valueOf(_currentCompetition.getInterval().split(":")[0]);
+        if (!_currentCompetition.getStartType().equals(getResources().getString(R.string.item_type_mas_start)))
+        {
+            _currentInterval = new Time();
+            _currentInterval.second = Integer.valueOf(_currentCompetition.getInterval().split(":")[1]); //вот тут при масс старте лежит хрень
+            _currentInterval.minute = Integer.valueOf(_currentCompetition.getInterval().split(":")[0]);
+            _timeNextParticipant = new Time(_currentInterval);
+        }
         handler = new Handler();
         final android.text.format.Time timeCountDown = new android.text.format.Time();
         timeCountDown.minute = Integer.valueOf(_currentCompetition.getTimeToStart().split(":")[0]);
         timeCountDown.second = Integer.valueOf(_currentCompetition.getTimeToStart().split(":")[1]);
         final long ms1 = timeCountDown.minute*60000+timeCountDown.second*1000;
 
-        _timeNextParticipant = new Time(_currentInterval);
+
         _currentTime = new android.text.format.Time();
         _currentTime.second = 0;
         _currentTime.minute = 0;
@@ -199,9 +202,9 @@ public class TestService extends Service {
                 }
                 else
                 {
-
+                    _viewAdapter = new GridViewAdapter(TestService.this, new ArrayList<MegaSportsman>());
                 }
-                _viewAdapter = new GridViewAdapter(TestService.this, new ArrayList<MegaSportsman>());
+
                 CompetitionsActivity.SetAdapterToGridView(_viewAdapter);
 
             }

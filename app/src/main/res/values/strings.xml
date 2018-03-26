@@ -151,4 +151,256 @@
         <item>Парный старт</item>
         <item>Массовый старт</item>
     </string-array>
+
+    <string-array name="name_country">
+        <item>Андорра</item>
+        <item>Объединенные Арабские Эмираты</item>
+        <item>Афганистан</item>
+        <item>Антигуа и Барбуда</item>
+        <item>Ангилия</item>
+        <item>Албания</item>
+        <item>Армения</item>
+        <item>Ангола</item>
+        <item>Антарктика</item>
+        <item>Аргентина</item>
+        <item>Американского Самоа</item>
+        <item>Австрия</item>
+        <item>Австралия</item>
+        <item>Аруба</item>
+        <item>Аландские острова</item>
+        <item>Азербайджан</item>
+        <item>Босния и Герцеговина</item>
+        <item>Барбадос</item>
+        <item>Бангладеш</item>
+        <item>Бельгия</item>
+        <item>Буркин-Фасо</item>
+        <item>Болгария</item>
+        <item>Бахрейн</item>
+        <item>Бурунди</item>
+        <item>Бенин</item>
+        <item>Санкт-Бартелеми</item>
+        <item>Бермудские о-ва</item>
+        <item>Бруней</item>
+        <item>Боливия</item>
+        <item>Карибские Нидерланды</item>
+        <item>Бразилия</item>
+        <item>Багамские о-ва</item>
+        <item>Бутан</item>
+        <item>Буве</item>
+        <item>Ботсвана</item>
+        <item>Белоруссия</item>
+        <item>Белиз</item>
+        <item>Канада</item>
+        <item>Кокосовые(Килинг) острова</item>
+        <item>Конго-Киншаса</item>
+        <item>Центрально-Африканская Республика</item>
+        <item>Конго-Браззавиль</item>
+        <item>Швейцария</item>
+        <item>Берег Слоновой Кости</item>
+        <item>Острова Кука</item>
+        <item>Чили</item>
+        <item>Камерун</item>
+        <item>Китай</item>
+        <item>Колумбия</item>
+        <item>Коста-Рика</item>
+        <item>Куба</item>
+        <item>Кабо-Верде</item>
+        <item>Кюрасао</item>
+        <item>Остров Рождества</item>
+        <item>Кипр</item>
+        <item>Чехия</item>
+        <item>Германия</item>
+        <item>Джибути</item>
+        <item>Дания</item>
+        <item>Доминика</item>
+        <item>Доминиканская Республика</item>
+        <item>Алжир</item>
+        <item>Эквадор</item>
+        <item>Эстония</item>
+        <item>Египет</item>
+        <item>Западная Сахара</item>
+        <item>Эритрея</item>
+        <item>Испания</item>
+        <item>Эфиопия</item>
+        <item>Финляндия</item>
+        <item>Фиджи</item>
+        <item>Фолклендские</item>
+        <item>Микронезия</item>
+        <item>Фарерские острова</item>
+        <item>Франция</item>
+        <item>Габон</item>
+        <item>Cоединенное Королевство</item>
+        <item>Гренада</item>
+        <item>Грузия</item>
+        <item>Французская Гвиана</item>
+        <item>Гернси</item>
+        <item>Гана</item>
+        <item>Гибралтар</item>
+        <item>Гренландия</item>
+        <item>Гамбия</item>
+        <item>Гвинея</item>
+        <item>Гваделупа</item>
+        <item>Экваториальная Гвинея</item>
+        <item>Греция</item>
+        <item>Южная Джорджия и Южные Сандвичевы острова</item>
+        <item>Гватемала</item>
+        <item>Гуам</item>
+        <item>Гвинея-Бисау</item>
+        <item>Гайана</item>
+        <item>Гонконг, Китай</item>
+        <item>Остров Херд и Острова Макдоналд</item>
+        <item>Гондурас</item>
+        <item>Хорватия</item>
+        <item>Гаити</item>
+        <item>Венгрия</item>
+        <item>Индонезия</item>
+        <item>Ирландия</item>
+        <item>Израиль</item>
+        <item>Остров Мэн</item>
+        <item>Индия</item>
+        <item>Британская территория в Индийском океане</item>
+        <item>Ирак</item>
+        <item>Иран</item>
+        <item>Исландия</item>
+        <item>Италия</item>
+        <item>Джерси</item>
+        <item>Ямайка</item>
+        <item>Иордания</item>
+        <item>Япония</item>
+        <item>Кения</item>
+        <item>Киргизия</item>
+        <item>Камбоджа</item>
+        <item>Кирибати</item>
+        <item>Коморские острова</item>
+        <item>Сент-Китс и Невис</item>
+        <item>Северная Корея</item>
+        <item>Южная Корея</item>
+        <item>Кувейт</item>
+        <item>Каймановы острова</item>
+        <item>Казахстан</item>
+        <item>Лаос</item>
+        <item>Ливан</item>
+        <item>Сент-Люсия</item>
+        <item>Лихтенштейн</item>
+        <item>Шри-Ланка</item>
+        <item>Либерия</item>
+        <item>Лесото</item>
+        <item>Литва</item>
+        <item>Люксембург</item>
+        <item>Латвия</item>
+        <item>Ливия</item>
+        <item>Марокко</item>
+        <item>Монако</item>
+        <item>Молдова</item>
+        <item>Черногория</item>
+        <item>Сен-Мартен</item>
+        <item>Мадагаскар</item>
+        <item>Маршалловы острова</item>
+        <item>Македония</item>
+        <item>Мали</item>
+        <item>Мьянма (Бирма)</item>
+        <item>Монголия</item>
+        <item>Макао Китай</item>
+        <item>Северные Марианские острова</item>
+        <item>Мартиника</item>
+        <item>Мавритания</item>
+        <item>Монтсеррат</item>
+        <item>Мальта</item>
+        <item>Маврикий</item>
+        <item>Мальдивы</item>
+        <item>Малави</item>
+        <item>Мексика</item>
+        <item>Малайзия</item>
+        <item>Мозамбик</item>
+        <item>Намибия</item>
+        <item>Новая Каледония</item>
+        <item>Нигер</item>
+        <item>Остров Норфолк</item>
+        <item>Нигерия</item>
+        <item>Никарагуа</item>
+        <item>Нидерланды</item>
+        <item>Норвегия</item>
+        <item>Непал</item>
+        <item>Науру</item>
+        <item>Ниуэ</item>
+        <item>Новая Зеландия</item>
+        <item>Оман</item>
+        <item>Панама</item>
+        <item>Перу</item>
+        <item>Французская Полинезия</item>
+        <item>Папуа-Новая Гвинея</item>
+        <item>Филиппины</item>
+        <item>Пакистан</item>
+        <item>Польша</item>
+        <item>Сен-Пьер и Микелон</item>
+        <item>Острова Питкэрн</item>
+        <item>Пуэрто-Рико</item>
+        <item>палестинские территории</item>
+        <item>Португалия</item>
+        <item>Палау</item>
+        <item>Парагвай</item>
+        <item>Катар</item>
+        <item>Встреча</item>
+        <item>Румыния</item>
+        <item>Сербия</item>
+        <item>Россия</item>
+        <item>Руанда</item>
+        <item>Саудовская Аравия</item>
+        <item>Соломоновы острова</item>
+        <item>Сейшельские острова</item>
+        <item>Судан</item>
+        <item>Швеция</item>
+        <item>Сингапур</item>
+        <item>Святой Елены</item>
+        <item>Словения</item>
+        <item>Шпицберген и Ян-Майен</item>
+        <item>Словакия</item>
+        <item>Сьерра-Леоне</item>
+        <item>Сан-Марино</item>
+        <item>Сенегал</item>
+        <item>Сомали</item>
+        <item>Суринам</item>
+        <item>Южный Судан</item>
+        <item>Сан-Томе и Принсипи</item>
+        <item>Эль-Сальвадор</item>
+        <item>Синт-Маартен</item>
+        <item>Сирия</item>
+        <item>Свазиленд</item>
+        <item>Теркс и Кайкос</item>
+        <item>Чад</item>
+        <item>Французские Южные Территории</item>
+        <item>Togo</item>
+        <item>Таиланд</item>
+        <item>Таджикистан</item>
+        <item>Токелау</item>
+        <item>Тимор-Лешти</item>
+        <item>Туркменистан</item>
+        <item>Тунис</item>
+        <item>Tonga</item>
+        <item>Турция</item>
+        <item>Тринидад и Тобаго</item>
+        <item>Тувалу</item>
+        <item>Тайвань</item>
+        <item>Танзания</item>
+        <item>Украина</item>
+        <item>Уганда</item>
+        <item>США Отдаленные Острова</item>
+        <item>США</item>
+        <item>Уругвай</item>
+        <item>Узбекистан</item>
+        <item>Ватикан</item>
+        <item>Сент-Винсент и Гренадины</item>
+        <item>Венесуэла</item>
+        <item>Британские Виргинские острова</item>
+        <item>Американские Виргинские острова</item>
+        <item>Вьетнам</item>
+        <item>Вануату</item>
+        <item>Уоллиса и Футуна</item>
+        <item>Самоа</item>
+        <item>Йемен</item>
+        <item>Майотта</item>
+        <item>Южная Африка</item>
+        <item>Замбия</item>
+        <item>Зимбабве</item>
+    </string-array>
 </resources>
