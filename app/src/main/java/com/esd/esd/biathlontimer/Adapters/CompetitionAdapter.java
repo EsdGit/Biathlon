@@ -3,6 +3,7 @@ package com.esd.esd.biathlontimer.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import static java.security.AccessController.getContext;
 
 /**
  * Created by Oleg on 20.01.2017.
@@ -48,15 +51,23 @@ public class CompetitionAdapter extends RecyclerView.Adapter<CompetitionAdapter.
     public void onBindViewHolder(ViewHolder holder, int position) {
         Competition competition = competitions.get(position);
         holder.nameTextView.setText(competition.getName());
+        if(competition.isFinished())
+        {
+            Drawable img = _localContext.getResources().getDrawable(R.drawable.ic_finish);
+            holder.nameTextView.setCompoundDrawablesWithIntrinsicBounds(img, null, null,null);
+        }
+
         holder.dateTextView.setText(competition.getDate());
         holder.longClickListener.setCompetition(competition);
         holder.clickListener.setCompetition(competition);
 
-        if (competition.isChecked()) {
+        if (competition.isChecked())
+        {
             int color = _localContext.getResources().getColor(R.color.colorPrimary);
             holder.nameTextView.setBackgroundColor(color);
             holder.dateTextView.setBackgroundColor(color);
-        } else {
+        }
+        else {
             holder.nameTextView.setBackgroundColor(Color.WHITE);
             holder.dateTextView.setBackgroundColor(Color.WHITE);
         }
