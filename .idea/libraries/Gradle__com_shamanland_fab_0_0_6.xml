@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.shamanland:fab-0.0.6">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/fab-0.0.6.aar/4d0d4bba386ea903793a418b41c175d6/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/fab-0.0.6.aar/4d0d4bba386ea903793a418b41c175d6/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.shamanland/fab/0.0.6/7cff443894b2dc46fb11a722b167581c53c7325a/fab-0.0.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
