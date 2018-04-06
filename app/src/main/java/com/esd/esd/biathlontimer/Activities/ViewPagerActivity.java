@@ -182,7 +182,7 @@ public class ViewPagerActivity extends AppCompatActivity
         _addDialogBuilder.setPositiveButton(AddDialogBtn, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int arg1)
             {
-                if(ParseSportsman(Integer.valueOf(_numberDialog.getText().toString()), _nameDialog.getText().toString(), false))
+                if(!ParseSportsman(1, new Sportsman(Integer.valueOf(_numberDialog.getText().toString()), _nameDialog.getText().toString(), 0, null, null), null, false))
                 {
                     _colorParticipant = ((ColorDrawable) _colorDialog.getBackground()).getColor();
                     Sportsman sportsman = new Sportsman(Integer.valueOf(_numberDialog.getText().toString()), _nameDialog.getText().toString(),
@@ -194,9 +194,12 @@ public class ViewPagerActivity extends AppCompatActivity
                     sportsman.setColor(Color.BLACK);
                     sportsman.setNumber(0);
                     sportsman.setGroup(getResources().getString(R.string.default_group));
-                    mainSaver.SaveSportsman(sportsman);
-                    _recyclerViewLocalDatabaseAdapter.SortList(saver.GetSportsmen("number", true));
-                    _recyclerViewDatabaseAdapter.AddSportsman(sportsman);
+                    if(!ParseSportsman(2, sportsman,  null,false))
+                    {
+                        mainSaver.SaveSportsman(sportsman);
+                        _recyclerViewLocalDatabaseAdapter.SortList(saver.GetSportsmen("number", true));
+                        _recyclerViewDatabaseAdapter.AddSportsman(sportsman);
+                    }
                 }
                 else
                 {
@@ -317,7 +320,7 @@ public class ViewPagerActivity extends AppCompatActivity
 
                         if (_renameRecyclerView == _recyclerView)
                         {
-                            if(ParseSportsman(numberInt, _nameRenameDialog.getText().toString(), true))
+                            if(!ParseSportsman(1, sportsman, _renameSportsman, true))
                             {
                                 int color = ((ColorDrawable) _colorRenameDialog.getBackground()).getColor();
                                 sportsman.setColor(color);
@@ -327,10 +330,10 @@ public class ViewPagerActivity extends AppCompatActivity
                                     saver.SaveSportsman(sportsman);
                                     isCorrectInputData = true;
                                 }
-                                else
-                                {
-                                    Toast.makeText(getApplicationContext(),getResources().getString(R.string.participant_already_exists_in_database),Toast.LENGTH_SHORT).show();
-                                }
+//                                else
+//                                {
+//                                    Toast.makeText(getApplicationContext(),getResources().getString(R.string.participant_already_exists_in_database),Toast.LENGTH_SHORT).show();
+//                                }
                             }
                             else
                             {
@@ -343,10 +346,13 @@ public class ViewPagerActivity extends AppCompatActivity
                         {
                             sportsman.setColor(Color.BLACK);
                             sportsman.setNumber(0);
-                            if(_recyclerViewDatabaseAdapter.ChangeSportsman(sportsman, _renameSportsman))
+                            if(!ParseSportsman(2, sportsman, _renameSportsman, true))
                             {
-                                mainSaver.DeleteSportsman(_renameSportsman);
-                                isCorrectInputData = true;
+                                if(_recyclerViewDatabaseAdapter.ChangeSportsman(sportsman, _renameSportsman))
+                                {
+                                    mainSaver.DeleteSportsman(_renameSportsman);
+                                    isCorrectInputData = true;
+                                }
                             }
                             else
                             {
@@ -360,8 +366,11 @@ public class ViewPagerActivity extends AppCompatActivity
                             sportsman.setColor(Color.BLACK);
                             sportsman.setNumber(0);
                             sportsman.setGroup(getResources().getString(R.string.default_group));
-                            mainSaver.SaveSportsman(sportsman);
-                            _recyclerViewDatabaseAdapter.AddSportsman(sportsman);
+                            if(!ParseSportsman(2, sportsman,null, true))
+                            {
+                                mainSaver.SaveSportsman(sportsman);
+                                _recyclerViewDatabaseAdapter.AddSportsman(sportsman);
+                            }
                             _colorDialog.setBackgroundColor(Color.BLACK);
                             _renameDialog.dismiss();
                         }
@@ -988,33 +997,42 @@ public class ViewPagerActivity extends AppCompatActivity
     }
 
 
-    private boolean ParseSportsman(int number, String fio, boolean isRename)
+    private boolean ParseSportsman(int mode, Sportsman newSportsman, Sportsman oldSportsman, boolean isRename)
     {
-        List<Sportsman> localList = saver.GetSportsmen("number", true);
+        List<Sportsman> localList;
+        if(mode == 1)
+        {
+            localList = saver.GetSportsmen("number", true);
+        }
+        else
+        {
+            localList = mainSaver.GetSportsmen("number", true);
+        }
 
-            for (int i = 0; i < localList.size(); i++)
+        for (int i = 0; i < localList.size(); i++)
+        {
+            if(isRename && mode == 1)
             {
-                if(isRename)
+                if((localList.get(i).getNumber() == newSportsman.getNumber() || localList.get(i).getName().replaceAll(" ", "").equals(newSportsman.getName().replaceAll(" ", ""))) && !localList.get(i).equals(oldSportsman))
                 {
-                    if(localList.get(i).getNumber() == number && localList.get(i).getName().equals(fio))
-                    {
-                        return true;
-                    }
-                }
-                else
-                {
-                    if(localList.get(i).getNumber() == number)
-                    {
-                        return false;
-                    }
-
+                    return true;
                 }
             }
+            else
+            {
+                if((localList.get(i).getNumber() == newSportsman.getNumber() && mode == 1) || localList.get(i).getName().replaceAll(" ", "").equals(newSportsman.getName().replaceAll(" ", "")))
+                {
+                    return true;
+                }
+            }
+        }
 
-        if((_currentCompetition.getStartNumber() + _currentCompetition.getMaxParticipantCount()) - 1 < number || _currentCompetition.getStartNumber() > number)
-            return false;
-        else
-            return true;
+        if(mode == 1 && !isRename)
+        {
+            if ((_currentCompetition.getStartNumber() + _currentCompetition.getMaxParticipantCount()) - 1 < newSportsman.getNumber() || _currentCompetition.getStartNumber() > newSportsman.getNumber())
+                return true;
+        }
+        return false;
     }
 
     MenuItem.OnMenuItemClickListener _onMenuItemClickListener = new MenuItem.OnMenuItemClickListener()
