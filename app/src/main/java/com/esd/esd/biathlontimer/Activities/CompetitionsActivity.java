@@ -657,7 +657,6 @@ public class CompetitionsActivity extends AppCompatActivity {
 
                 if (lap == lapsCount - 1) {
                     TestService.SetFinish(number, true);
-                    //_viewAdapter.setIsFinished(number, true);
                 }
             }
         }
