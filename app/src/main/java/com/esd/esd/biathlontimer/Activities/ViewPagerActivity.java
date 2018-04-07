@@ -848,6 +848,7 @@ public class ViewPagerActivity extends AppCompatActivity
         saver.SaveSportsmen(checkedList);
         _recyclerViewLocalDatabaseAdapter.SortList(saver.GetSportsmen("number", true));
         _recyclerViewLocalDatabaseAdapter.AddSportsmen(checkedList);
+        SetStartPosition(1, _recyclerViewLocalDatabaseAdapter.getItemCount());
         SetStartPosition(2, _recyclerViewDatabaseAdapter.getItemCount());
         //Toast.makeText(getApplicationContext(),"Участники были добавлены в соревнование",Toast.LENGTH_SHORT).show();
         EmptyDataBaseCompetition();
