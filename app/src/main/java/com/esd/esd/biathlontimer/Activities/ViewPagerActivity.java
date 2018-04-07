@@ -1013,14 +1013,14 @@ public class ViewPagerActivity extends AppCompatActivity
         {
             if(isRename && mode == 1)
             {
-                if((localList.get(i).getNumber() == newSportsman.getNumber() || localList.get(i).getName().replaceAll(" ", "").equals(newSportsman.getName().replaceAll(" ", ""))) && !localList.get(i).equals(oldSportsman))
+                if((localList.get(i).getNumber() == newSportsman.getNumber() || localList.get(i).getName().replaceAll(" ", "").toLowerCase().equals(newSportsman.getName().replaceAll(" ", "").toLowerCase())) && !localList.get(i).equals(oldSportsman))
                 {
                     return true;
                 }
             }
             else
             {
-                if((localList.get(i).getNumber() == newSportsman.getNumber() && mode == 1) || localList.get(i).getName().replaceAll(" ", "").equals(newSportsman.getName().replaceAll(" ", "")))
+                if((localList.get(i).getNumber() == newSportsman.getNumber() && mode == 1) || localList.get(i).getName().replaceAll(" ", "").toLowerCase().equals(newSportsman.getName().replaceAll(" ", "").toLowerCase()))
                 {
                     return true;
                 }
