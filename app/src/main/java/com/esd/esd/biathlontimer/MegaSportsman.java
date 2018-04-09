@@ -118,11 +118,29 @@ public class MegaSportsman extends RealmObject implements ISportsman
 
     public String getFineCountArrString()
     {
+//        if(_fineCountArr == null) _fineCountArr = new int[LapsCount];
+//        String localStr = String.valueOf(_fineCountArr[0]);
+//        for(int i = 1; i < _currentLap; i++)
+//        {
+//            localStr += "-"+String.valueOf(_fineCountArr[i]);
+//        }
         if(_fineCountArr == null) _fineCountArr = new int[LapsCount];
-        String localStr = String.valueOf(_fineCountArr[0]);
+        String localStr = "";
+        if(_fineCountArr[0] == 0)
+        {
+            if(_currentLap == 1)
+                localStr = "-";
+        }
+        else
+        {
+            localStr = String.valueOf(_fineCountArr[0]);
+        }
         for(int i = 1; i < _currentLap; i++)
         {
-            localStr += "-"+String.valueOf(_fineCountArr[i]);
+            if(localStr == "")
+                localStr += String.valueOf(_fineCountArr[i]);
+            else
+                localStr += "-"+String.valueOf(_fineCountArr[i]);
         }
         return localStr;
     }
