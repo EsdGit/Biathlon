@@ -380,7 +380,7 @@ public class SettingsFragment extends PreferenceFragment implements DatePickerDi
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue)
             {
-                String getString = (String)newValue;
+                String getString = ((String)newValue).replaceAll(" ", "");
                 if(!getString.isEmpty())
                 {
                     _nameCompetition.setSummary((String) newValue);
