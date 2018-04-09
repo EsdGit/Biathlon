@@ -756,6 +756,7 @@ public class CompetitionsActivity extends AppCompatActivity {
     {
         if(_isPaused && _competitionState == CompetitionState.Running)
         {
+            _gridView.setEnabled(true);
             _isPaused = false;
             return;
         }
@@ -898,6 +899,7 @@ public class CompetitionsActivity extends AppCompatActivity {
     {
         if(_competitionState == CompetitionState.Running || _competitionState == CompetitionState.Started)
         {
+            _gridView.setEnabled(false);
             _isPaused = true;
         }
         //Toast.makeText(getApplicationContext(),"Пауза",Toast.LENGTH_SHORT).show();
