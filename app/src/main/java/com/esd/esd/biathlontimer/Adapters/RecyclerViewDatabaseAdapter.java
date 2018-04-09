@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.esd.esd.biathlontimer.Activities.ViewPagerActivity;
 import com.esd.esd.biathlontimer.R;
@@ -109,7 +110,20 @@ public class RecyclerViewDatabaseAdapter extends RecyclerView.Adapter<RecyclerVi
     @Override
     public boolean ChangeSportsman(Sportsman newSportsman, Sportsman oldSportsman)
     {
-        if(sportsmen.contains(newSportsman)) return false;
+        //if(sportsmen.contains(newSportsman)) return false;
+//        for (Sportsman sportsman: sportsmen)
+//        {
+//            if(!sportsman.equals(oldSportsman)) {
+//                if (sportsman.getNumber() == newSportsman.getNumber()) {
+//                    Toast.makeText(_localContext, _localContext.getResources().getText(R.string.participant_with_number_already_exists), Toast.LENGTH_SHORT).show();
+//                    return false;
+//                }
+//                if (sportsman.getName().equals(newSportsman.getName())) {
+//                    Toast.makeText(_localContext, _localContext.getResources().getText(R.string.participant_with_name_already_exists), Toast.LENGTH_SHORT).show();
+//                    return false;
+//                }
+//            }
+//        }
         int pos = sportsmen.indexOf(oldSportsman);
         sportsmen.set(pos, newSportsman);
         notifyItemChanged(pos);
