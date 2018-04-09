@@ -133,6 +133,7 @@ public class SettingsActivity extends PreferenceActivity
             }
             if(_canAddCompetition)
             {
+                this.onDestroy();
                 if(!isEditMode)
                 {
                     saver.SaveCompetition(newComp);
