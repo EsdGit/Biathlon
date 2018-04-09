@@ -179,32 +179,47 @@ public class ViewPagerActivity extends AppCompatActivity
         _addDialogBuilder.setView(_dialogForm);
 
         // Действия по кнопке "Добавить"
-        _addDialogBuilder.setPositiveButton(AddDialogBtn, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int arg1)
+        _addDialogBuilder.setPositiveButton(AddDialogBtn, null); //new DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int arg1)
+//            {
+//                if(!ParseSportsman(1, new Sportsman(Integer.valueOf(_numberDialog.getText().toString()), _nameDialog.getText().toString(), Integer.valueOf(_birthdayDialog.getText().toString()), _countryDialog.getText().toString(), null), null, false))
+//                {
+//                    _colorParticipant = ((ColorDrawable) _colorDialog.getBackground()).getColor();
+//                    Sportsman sportsman = new Sportsman(Integer.valueOf(_numberDialog.getText().toString()), _nameDialog.getText().toString(),
+//                            Integer.valueOf(_birthdayDialog.getText().toString()), _countryDialog.getText().toString(), _spinnerOfGroup.getSelectedItem().toString());
+//
+//                    sportsman.setColor(_colorParticipant);
+//
+//                    saver.SaveSportsman(sportsman);
+//                    _recyclerViewLocalDatabaseAdapter.SortList(saver.GetSportsmen("number", true));
+//                    sportsman.setColor(Color.BLACK);
+//                    sportsman.setNumber(0);
+//                    sportsman.setGroup(getResources().getString(R.string.default_group));
+//                    if(!ParseSportsman(2, sportsman,  null,false))
+//                    {
+//                        mainSaver.SaveSportsman(sportsman);
+//                        _recyclerViewDatabaseAdapter.AddSportsman(sportsman);
+//                    }
+//                }
+//                else
+//                {
+//                    Toast.makeText(getApplicationContext(),getResources().getString(R.string.participant_already_exists_in_database),Toast.LENGTH_SHORT).show();
+//                }
+//                SetStartPosition(1, _recyclerViewDatabaseAdapter.getItemCount());
+//                _nameDialog.setText("");
+//                _birthdayDialog.setText("");
+//                _countryDialog.setText("");
+//                _numberDialog.setText("");
+//                _colorDialog.setBackgroundColor(Color.BLACK);
+//                _addColorToParticipantDialog.setSelectedColor(Color.BLACK);
+//                _spinnerOfGroup.setSelection(0);
+//            }
+//
+//        });
+        _addDialogBuilder.setNegativeButton(CancelDialogBtn, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which)
             {
-                if(!ParseSportsman(1, new Sportsman(Integer.valueOf(_numberDialog.getText().toString()), _nameDialog.getText().toString(), 0, null, null), null, false))
-                {
-                    _colorParticipant = ((ColorDrawable) _colorDialog.getBackground()).getColor();
-                    Sportsman sportsman = new Sportsman(Integer.valueOf(_numberDialog.getText().toString()), _nameDialog.getText().toString(),
-                            Integer.valueOf(_birthdayDialog.getText().toString()), _countryDialog.getText().toString(), _spinnerOfGroup.getSelectedItem().toString());
-
-                    sportsman.setColor(_colorParticipant);
-
-                    saver.SaveSportsman(sportsman);
-                    sportsman.setColor(Color.BLACK);
-                    sportsman.setNumber(0);
-                    sportsman.setGroup(getResources().getString(R.string.default_group));
-                    if(!ParseSportsman(2, sportsman,  null,false))
-                    {
-                        mainSaver.SaveSportsman(sportsman);
-                        _recyclerViewLocalDatabaseAdapter.SortList(saver.GetSportsmen("number", true));
-                        _recyclerViewDatabaseAdapter.AddSportsman(sportsman);
-                    }
-                }
-                else
-                {
-                    Toast.makeText(getApplicationContext(),getResources().getString(R.string.participant_already_exists_in_database),Toast.LENGTH_SHORT).show();
-                }
                 SetStartPosition(1, _recyclerViewDatabaseAdapter.getItemCount());
                 _nameDialog.setText("");
                 _birthdayDialog.setText("");
@@ -214,17 +229,59 @@ public class ViewPagerActivity extends AppCompatActivity
                 _addColorToParticipantDialog.setSelectedColor(Color.BLACK);
                 _spinnerOfGroup.setSelection(0);
             }
-
-        });
-        _addDialogBuilder.setNegativeButton(CancelDialogBtn, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
         });
         //Запрет на выход с диалогового окна кнопкой "Back"
         _addDialogBuilder.setCancelable(false);
         _addDialog = _addDialogBuilder.create();
+        _addDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialog) {
+                Button addDialogPositiveButton =  ((AlertDialog)_addDialog).getButton(AlertDialog.BUTTON_POSITIVE);
+                addDialogPositiveButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        boolean currentInput = false;
+                        if(!ParseSportsman(1, new Sportsman(Integer.valueOf(_numberDialog.getText().toString()), _nameDialog.getText().toString(), Integer.valueOf(_birthdayDialog.getText().toString()), _countryDialog.getText().toString(), null), null, false))
+                        {
+                            currentInput = true;
+                            _colorParticipant = ((ColorDrawable) _colorDialog.getBackground()).getColor();
+                            Sportsman sportsman = new Sportsman(Integer.valueOf(_numberDialog.getText().toString()), _nameDialog.getText().toString(),
+                                    Integer.valueOf(_birthdayDialog.getText().toString()), _countryDialog.getText().toString(), _spinnerOfGroup.getSelectedItem().toString());
+
+                            sportsman.setColor(_colorParticipant);
+
+                            saver.SaveSportsman(sportsman);
+                            _recyclerViewLocalDatabaseAdapter.SortList(saver.GetSportsmen("number", true));
+                            sportsman.setColor(Color.BLACK);
+                            sportsman.setNumber(0);
+                            sportsman.setGroup(getResources().getString(R.string.default_group));
+                            if(!ParseSportsman(2, sportsman,  null,false))
+                            {
+                                mainSaver.SaveSportsman(sportsman);
+                                _recyclerViewDatabaseAdapter.AddSportsman(sportsman);
+                            }
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(),getResources().getString(R.string.participant_already_exists_in_database),Toast.LENGTH_SHORT).show();
+                        }
+                        if(currentInput)
+                        {
+                            SetStartPosition(1, _recyclerViewDatabaseAdapter.getItemCount());
+                            _nameDialog.setText("");
+                            _birthdayDialog.setText("");
+                            _countryDialog.setText("");
+                            _numberDialog.setText("");
+                            _colorDialog.setBackgroundColor(Color.BLACK);
+                            _addColorToParticipantDialog.setSelectedColor(Color.BLACK);
+                            _spinnerOfGroup.setSelection(0);
+                            _addDialog.dismiss();
+                        }
+                    }
+                });
+            }
+        });
 
         _renameDialogBuilder = new AlertDialog.Builder(this);
         _renameDialogBuilder.setTitle(getResources().getString(R.string.rename_dialog_title));
@@ -1012,19 +1069,41 @@ public class ViewPagerActivity extends AppCompatActivity
 
         for (int i = 0; i < localList.size(); i++)
         {
-            if(isRename && mode == 1)
+            if(isRename)//Режим редактирования
             {
-                if((localList.get(i).getNumber() == newSportsman.getNumber() || localList.get(i).getName().replaceAll(" ", "").toLowerCase().equals(newSportsman.getName().replaceAll(" ", "").toLowerCase())) && !localList.get(i).equals(oldSportsman))
+                if(mode == 1)
                 {
-                    return true;
+                    if((localList.get(i).getNumber() == newSportsman.getNumber() || (localList.get(i).getName().replaceAll(" ", "").toLowerCase().equals(newSportsman.getName().replaceAll(" ", "").toLowerCase()) && localList.get(i).getYear() == newSportsman.getYear()) && localList.get(i).getCountry().replaceAll(" ", "").toLowerCase().equals(newSportsman.getCountry().replaceAll(" ", "").toLowerCase())) && !localList.get(i).equals(oldSportsman))
+                    {
+                        return true;
+                    }
                 }
+                else
+                {
+                    if(((localList.get(i).getNumber() == newSportsman.getNumber()) || (localList.get(i).getName().replaceAll(" ", "").toLowerCase().equals(newSportsman.getName().replaceAll(" ", "").toLowerCase()) && localList.get(i).getYear() == newSportsman.getYear() && localList.get(i).getCountry().replaceAll(" ", "").toLowerCase().equals(newSportsman.getCountry().replaceAll(" ", "").toLowerCase())))  && !localList.get(i).equals(oldSportsman) )
+                    {
+                        return true;
+                    }
+                }
+
             }
-            else
+            else//Режим добавления
             {
-                if((localList.get(i).getNumber() == newSportsman.getNumber() && mode == 1) || localList.get(i).getName().replaceAll(" ", "").toLowerCase().equals(newSportsman.getName().replaceAll(" ", "").toLowerCase()))
+                if(mode == 1)
                 {
-                    return true;
+                    if((localList.get(i).getNumber() == newSportsman.getNumber()) || (localList.get(i).getName().replaceAll(" ", "").toLowerCase().equals(newSportsman.getName().replaceAll(" ", "").toLowerCase()) && localList.get(i).getYear() == newSportsman.getYear() && localList.get(i).getCountry().replaceAll(" ", "").toLowerCase().equals(newSportsman.getCountry().replaceAll(" ", "").toLowerCase())))
+                    {
+                        return true;
+                    }
                 }
+                else
+                {
+                    if((localList.get(i).getName().replaceAll(" ", "").toLowerCase().equals(newSportsman.getName().replaceAll(" ", "").toLowerCase()) && localList.get(i).getYear() == newSportsman.getYear() && localList.get(i).getCountry().replaceAll(" ", "").toLowerCase().equals(newSportsman.getCountry().replaceAll(" ", "").toLowerCase())))
+                    {
+                        return true;
+                    }
+                }
+
             }
         }
 
