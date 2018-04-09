@@ -407,17 +407,13 @@ public class CompetitionsActivity extends AppCompatActivity {
             }
         }
 
-        for(int i = 0; i < _megaSportsmen.length; i++)
-        {
-            if(number == _megaSportsmen[i].getNumber())
-            {
-                _megaSportsmen[i].setCurrentLap(lap-1);
-                if(!getResources().getBoolean(R.bool.isTablet))
+        for(int i = 0; i < _megaSportsmen.length; i++) {
+            if (number == _megaSportsmen[i].getNumber()) {
+                _megaSportsmen[i].setCurrentLap(lap - 1);
+                if (!getResources().getBoolean(R.bool.isTablet))
                     TestService.RemoveSportsman(_megaSportsmen[i]);
-                else
-                {
-                    for(int j = lap-1; j < _arrayAdapters.size(); j++)
-                    {
+                else {
+                    for (int j = lap - 1; j < _arrayAdapters.size(); j++) {
                         _arrayAdapters.get(j).RemoveSportsmanByNumber(number);
                     }
                 }
@@ -425,6 +421,7 @@ public class CompetitionsActivity extends AppCompatActivity {
             }
         }
         TestService.ChangeSportsmanLap(number, lap-1);
+        GetLag(lap -1);
         TestService.SetFinish(number, false);
 
     }
