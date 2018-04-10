@@ -390,6 +390,7 @@ public class CompetitionsActivity extends AppCompatActivity {
     {
         int number = sportsmanDeleteEvent.GetSportsmanNumber();
         int lap = sportsmanDeleteEvent.GetLapNumber();
+        boolean wasDeleted = false;
         for(int i = lap - 1; i < _arrayMegaSportsmen.length; i++)
         {
             for(int j = 0; j < _arrayMegaSportsmen[i].size(); j++)
@@ -397,13 +398,19 @@ public class CompetitionsActivity extends AppCompatActivity {
                 if(number == _arrayMegaSportsmen[i].get(j).getNumber())
                 {
                     _arrayMegaSportsmen[i].remove(j);
+                    for(int k = j; k < _arrayMegaSportsmen[i].size(); k++)
+                    {
+                        _arrayMegaSportsmen[i].get(k).setPlace(_arrayMegaSportsmen[i].get(k).getPlace() - 1);
+                    }
                     break;
                 }
             }
         }
 
-        for(int i = 0; i < _megaSportsmen.length; i++) {
-            if (number == _megaSportsmen[i].getNumber()) {
+        for(int i = 0; i < _megaSportsmen.length; i++)
+        {
+            if (number == _megaSportsmen[i].getNumber())
+            {
                 _megaSportsmen[i].setCurrentLap(lap - 1);
                 if (!getResources().getBoolean(R.bool.isTablet))
                     TestService.RemoveSportsman(_megaSportsmen[i]);

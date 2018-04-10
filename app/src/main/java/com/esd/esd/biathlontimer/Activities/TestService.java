@@ -410,6 +410,7 @@ public class TestService extends Service {
             _tableAdapter.ChangePlacesAfterDelete();
     }
 
+
     class MyTimerTask extends AsyncTask<Integer, Integer, Integer>
     {
         @Override
