@@ -49,7 +49,6 @@ public class RealmSportsmenSaver
         if(realm.where(Sportsman.class).equalTo("name",sportsman.getName()).equalTo("year", sportsman.getYear()).
             equalTo("country", sportsman.getCountry()).count() > 0) return;
         sportsman.setId(keyId.getAndIncrement());
-        // C цветом что-то не то
         realm.beginTransaction();
         realm.insert(sportsman);
         realm.commitTransaction();

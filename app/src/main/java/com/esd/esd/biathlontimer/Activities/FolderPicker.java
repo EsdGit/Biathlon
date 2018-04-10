@@ -91,14 +91,12 @@ public class FolderPicker extends AppCompatActivity
         switch(item.getItemId())
         {
             case R.id.file_directory_accept:
-                //Toast.makeText(getApplicationContext(),"принять",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.putExtra("url", _currentPath);
                 setResult(Activity.RESULT_OK, intent);
                 finish();
                 break;
             case R.id.file_directory_cancel:
-                //Toast.makeText(getApplicationContext(),"отмена",Toast.LENGTH_SHORT).show();
                 finish();
                 break;
         }
@@ -110,7 +108,6 @@ public class FolderPicker extends AppCompatActivity
 
         if(keyCode == (KeyEvent.KEYCODE_BACK))
         {
-           // if(_currentPath.equals(Environment.getExternalStorageDirectory().getPath())) return false;
             String[] splits = _currentPath.split("/");
             if(splits.length > 3)
             {

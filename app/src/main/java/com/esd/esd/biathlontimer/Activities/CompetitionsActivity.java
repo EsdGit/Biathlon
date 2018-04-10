@@ -416,7 +416,7 @@ public class CompetitionsActivity extends AppCompatActivity {
             }
         }
         TestService.ChangeSportsmanLap(number, lap-1);
-        // ТУТ НЕКОРРЕКТНО РАБОТАЕТ!!!
+        // ТУТ НЕКОРРЕКТНО РАБОТАЕТ!!! НЕОБХОДИМО ПЕРЕСЧИТЫВАТЬ ПОЗИЦИЮ
         for (int i = 0; i< lapsCount; i++)
         {
             GetLag(i);
@@ -591,7 +591,6 @@ public class CompetitionsActivity extends AppCompatActivity {
         {
             TextView NumberStr = (TextView) view.findViewById(R.id.numberParticipantMyButton);
             TextView LapStr = (TextView) view.findViewById(R.id.lapParticipantMyButton);
-            //FrameLayout finishedLayout = (FrameLayout)view.findViewById(R.id.second_layout);
             int number = Integer.valueOf(NumberStr.getText().toString());
             int lap = Integer.valueOf(LapStr.getText().toString());
             int currentSportsmen = 0;
@@ -601,7 +600,6 @@ public class CompetitionsActivity extends AppCompatActivity {
             {
                 MegaSportsman localSportsman = null;
                 TestService.ChangeSportsmanLap(number, lap + 1);
-                //_viewAdapter.ChangeSportsmanLap(number, lap + 1);
                 android.text.format.Time newTime = new android.text.format.Time();
                 for (int i = 0; i < _megaSportsmen.length; i++) {
                     if (number == _megaSportsmen[i].getNumber())
@@ -784,6 +782,7 @@ public class CompetitionsActivity extends AppCompatActivity {
             megaSportsmanSaver.DeleteTable();
             megaSportsmanSaver = new RealmMegaSportsmanSaver(this, "LAP"+i+_currentCompetition.getNameDateString());
             megaSportsmanSaver.SaveSportsmen(_arrayMegaSportsmen[i]);
+            megaSportsmanSaver.CloseDatabase();
         }
         RealmCompetitionSaver compSaver = new RealmCompetitionSaver(this, "COMPETITIONS");
         compSaver.DeleteCompetition(_currentCompetition);

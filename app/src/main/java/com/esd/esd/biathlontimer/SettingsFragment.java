@@ -150,8 +150,6 @@ public class SettingsFragment extends PreferenceFragment implements DatePickerDi
                 {
                     _setStartTimer.setSummary(SetNormalFormatDataTime(_minute.getValue() + ":" + _seconds.getValue(), true));
                     _dialogInterval.setTitle(getResources().getString(R.string.interval_dialog_title));
-                    //_minuteStart = _minute.getValue();
-                    //_secondsStart = _seconds.getValue();
                     _isStartTimer = false;
                 }
                 else
@@ -160,15 +158,11 @@ public class SettingsFragment extends PreferenceFragment implements DatePickerDi
                     {
                         _fine.setSummary(getResources().getString(R.string.summary_fine_after_set) + SetNormalFormatDataTime(_minute.getValue() + ":" + _seconds.getValue(), true));
                         _dialogInterval.setTitle(getResources().getString(R.string.interval_dialog_title));
-                        //_minuteFine = _minute.getValue();
-                        //_secondFine = _seconds.getValue();
                         _isFine = false;
                     }
                     else
                     {
                         _setInterval.setSummary(SetNormalFormatDataTime(_minute.getValue() + ":" + _seconds.getValue(), true));
-                        //_minuteInterval = _minute.getValue();
-                        //_secondsInterval = _seconds.getValue();
                     }
                 }
             }
@@ -329,7 +323,6 @@ public class SettingsFragment extends PreferenceFragment implements DatePickerDi
         @Override
         public boolean onPreferenceClick(Preference preference)
         {
-            //SetStartPositionInTimeDialog();
             String[] currentTime;
             if(!_setInterval.getSummary().equals(getResources().getString(R.string.summary_interval)))
             {
@@ -370,8 +363,6 @@ public class SettingsFragment extends PreferenceFragment implements DatePickerDi
                         }
                     }
                 });
-                //SetStartPositionInTimeDialog();
-                //_setNumberStartWithSecondInterval.setText("");
                 return false;
             }
         });
@@ -437,8 +428,6 @@ public class SettingsFragment extends PreferenceFragment implements DatePickerDi
             @Override
             public boolean onPreferenceClick(Preference preference)
             {
-                //_startNumber.setText("");
-                //_countParticipant.setText("");
                 _dialogStartNumber.show();
                 return false;
             }
@@ -448,7 +437,6 @@ public class SettingsFragment extends PreferenceFragment implements DatePickerDi
             @Override
             public boolean onPreferenceClick(Preference preference)
             {
-                //SetStartPositionInTimeDialog();
                 String[] currentTime;
                 if(!_setStartTimer.getSummary().equals(getResources().getString(R.string.summary_time_to_start)))
                 {
@@ -472,7 +460,6 @@ public class SettingsFragment extends PreferenceFragment implements DatePickerDi
             @Override
             public boolean onPreferenceClick(Preference preference)
             {
-                //SetStartPositionInTimeDialog();
                 String[] currentTime;
                 if(!_fine.getSummary().equals(getResources().getString(R.string.summary_fine)))
                 {
@@ -561,7 +548,6 @@ public class SettingsFragment extends PreferenceFragment implements DatePickerDi
         if(!_typeStart.getSummary().toString().equals(myRes.getString(R.string.item_type_mas_start)))
         {
             if(_setInterval.getSummary().toString().equals(myRes.getString(R.string.summary_interval))) return null;
-            //if(_setSecondInterval.getSummary().toString().equals(myRes.getString(R.string.summary_interval)))return null;
         }
         if(_fine.getSummary().toString().equals(myRes.getString(R.string.summary_fine))) return null;
         if(!_group.getSummary().toString().equals(myRes.getString(R.string.summary_group)))
@@ -610,14 +596,6 @@ public class SettingsFragment extends PreferenceFragment implements DatePickerDi
         }
         return result;
     }
-
-//    private void SetStartPositionInTimeDialog()
-//    {
-//        _minute.setValue(MIN_VALUE_MINUTE_AND_SECONDS);
-//        _seconds.setValue(MIN_VALUE_MINUTE_AND_SECONDS);
-//        _minuteSecondInterval.setValue(MIN_VALUE_MINUTE_AND_SECONDS);
-//        _secondsSecondInterval.setValue(MIN_VALUE_MINUTE_AND_SECONDS);
-//    }
 
     private String SetSummaryPreferenceGroup()
     {

@@ -232,8 +232,6 @@ public class RecyclerViewLocalDatabaseAdapter extends RecyclerView.Adapter<Recyc
     @Override
     public void AddSportsman(Sportsman sportsman)
     {
-//        sportsmen.add(sportsmen.size(), sportsman);
-//        notifyItemInserted(sportsmen.size());
         if(sportsmen.contains(sportsman)) return;
         sportsmen.add(0, new Sportsman(sportsman));
         notifyItemInserted(0);
@@ -242,20 +240,6 @@ public class RecyclerViewLocalDatabaseAdapter extends RecyclerView.Adapter<Recyc
     @Override
     public boolean ChangeSportsman(Sportsman newSportsman, Sportsman oldSportsman)
     {
-        //if(sportsmen.) return false;
-//        for (Sportsman sportsman: sportsmen)
-//        {
-//            if(!sportsman.equals(oldSportsman)) {
-//                if (sportsman.getNumber() == newSportsman.getNumber()) {
-//                    Toast.makeText(_localContext, _localContext.getResources().getText(R.string.participant_with_number_already_exists), Toast.LENGTH_SHORT).show();
-//                    return false;
-//                }
-//                if (sportsman.getName().equals(newSportsman.getName())) {
-//                    Toast.makeText(_localContext, _localContext.getResources().getText(R.string.participant_with_name_already_exists), Toast.LENGTH_SHORT).show();
-//                    return false;
-//                }
-//            }
-//        }
         int pos = sportsmen.indexOf(oldSportsman);
         sportsmen.set(pos, new Sportsman(newSportsman));
         notifyItemChanged(pos);

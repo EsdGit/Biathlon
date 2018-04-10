@@ -105,10 +105,6 @@ public class MegaSportsman extends RealmObject implements ISportsman
         LapsCount = lapsCount;
     }
 
-//    public void setFineCount(int fineCount, int lapNumber)
-//    {
-//        _fineCount[lapNumber] += fineCount;
-//    }
     public void setFineCount(int fineCount, int lapNumber)
     {
         if(_fineCountArr == null) _fineCountArr = new int[LapsCount];
@@ -118,12 +114,6 @@ public class MegaSportsman extends RealmObject implements ISportsman
 
     public String getFineCountArrString()
     {
-//        if(_fineCountArr == null) _fineCountArr = new int[LapsCount];
-//        String localStr = String.valueOf(_fineCountArr[0]);
-//        for(int i = 1; i < _currentLap; i++)
-//        {
-//            localStr += "-"+String.valueOf(_fineCountArr[i]);
-//        }
         if(_fineCountArr == null) _fineCountArr = new int[LapsCount];
         String localStr = "";
         if(_fineCountArr[0] == 0)
@@ -161,27 +151,11 @@ public class MegaSportsman extends RealmObject implements ISportsman
             }
         }
     }
-//    public int getFineCount(int lapNumber)
-//    {
-//        return _fineCount[lapNumber];
-//    }
+
     public int getFineCount()
     {
         return _fineCount;
     }
-
-//    public void setFineTime(Time fine, int lapNumber)
-//    {
-//        if(_fineTime[lapNumber] == null)
-//            _fineTime[lapNumber] = new Time(fine);
-//        else
-//        {
-//            _fineTime[lapNumber].second += fine.second;
-//            _fineTime[lapNumber].minute += fine.minute;
-//            _fineTime[lapNumber].hour += fine.hour;
-//            _fineTime[lapNumber].normalize(false);
-//        }
-//    }
 
     public void setFineTime(Time fine)
     {
@@ -211,7 +185,6 @@ public class MegaSportsman extends RealmObject implements ISportsman
     {
         _resultTime = new Time(result);
         _resultRunOnly = _resultTime.format("%H:%M:%S");
-        //_resultsDb = _resultTime.format("%H:%M:%S");
     }
 
     public Time getResultTime()

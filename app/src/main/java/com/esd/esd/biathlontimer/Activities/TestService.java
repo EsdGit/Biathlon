@@ -98,18 +98,15 @@ public class TestService extends Service {
                         @Override
                         public void run() {
                             if (_currentCompetition.getStartType().equals(SingleStart)) {
-                                //_participantGridLayout.addView(CreateButton(_megaSportsmen[_number], "0"));
                                 _megaSportsmen[_number].setStartTime(_currentTime);
                                 _viewAdapter.AddSportsman(_megaSportsmen[_number]);
                                 _number++;
                             } else {
                                 if (_currentCompetition.getStartType().equals(PairStart)) {
-                                    //_participantGridLayout.addView(CreateButton(_megaSportsmen[_number], "0"));
                                     _megaSportsmen[_number].setStartTime(_currentTime);
                                     _viewAdapter.AddSportsman(_megaSportsmen[_number]);
                                     _number++;
                                     if (_number < _megaSportsmen.length) {
-                                        //_participantGridLayout.addView(CreateButton(_megaSportsmen[_number], "0"));
                                         _megaSportsmen[_number].setStartTime(_currentTime);
                                         _viewAdapter.AddSportsman(_megaSportsmen[_number]);
                                         _number++;

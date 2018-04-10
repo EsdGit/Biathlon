@@ -179,43 +179,7 @@ public class ViewPagerActivity extends AppCompatActivity
         _addDialogBuilder.setView(_dialogForm);
 
         // Действия по кнопке "Добавить"
-        _addDialogBuilder.setPositiveButton(AddDialogBtn, null); //new DialogInterface.OnClickListener() {
-//            public void onClick(DialogInterface dialog, int arg1)
-//            {
-//                if(!ParseSportsman(1, new Sportsman(Integer.valueOf(_numberDialog.getText().toString()), _nameDialog.getText().toString(), Integer.valueOf(_birthdayDialog.getText().toString()), _countryDialog.getText().toString(), null), null, false))
-//                {
-//                    _colorParticipant = ((ColorDrawable) _colorDialog.getBackground()).getColor();
-//                    Sportsman sportsman = new Sportsman(Integer.valueOf(_numberDialog.getText().toString()), _nameDialog.getText().toString(),
-//                            Integer.valueOf(_birthdayDialog.getText().toString()), _countryDialog.getText().toString(), _spinnerOfGroup.getSelectedItem().toString());
-//
-//                    sportsman.setColor(_colorParticipant);
-//
-//                    saver.SaveSportsman(sportsman);
-//                    _recyclerViewLocalDatabaseAdapter.SortList(saver.GetSportsmen("number", true));
-//                    sportsman.setColor(Color.BLACK);
-//                    sportsman.setNumber(0);
-//                    sportsman.setGroup(getResources().getString(R.string.default_group));
-//                    if(!ParseSportsman(2, sportsman,  null,false))
-//                    {
-//                        mainSaver.SaveSportsman(sportsman);
-//                        _recyclerViewDatabaseAdapter.AddSportsman(sportsman);
-//                    }
-//                }
-//                else
-//                {
-//                    Toast.makeText(getApplicationContext(),getResources().getString(R.string.participant_already_exists_in_database),Toast.LENGTH_SHORT).show();
-//                }
-//                SetStartPosition(1, _recyclerViewDatabaseAdapter.getItemCount());
-//                _nameDialog.setText("");
-//                _birthdayDialog.setText("");
-//                _countryDialog.setText("");
-//                _numberDialog.setText("");
-//                _colorDialog.setBackgroundColor(Color.BLACK);
-//                _addColorToParticipantDialog.setSelectedColor(Color.BLACK);
-//                _spinnerOfGroup.setSelection(0);
-//            }
-//
-//        });
+        _addDialogBuilder.setPositiveButton(AddDialogBtn, null);
         _addDialogBuilder.setNegativeButton(CancelDialogBtn, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which)
@@ -287,63 +251,6 @@ public class ViewPagerActivity extends AppCompatActivity
         _renameDialogBuilder.setTitle(getResources().getString(R.string.rename_dialog_title));
         _renameDialogBuilder.setView(_renameForm);
         _renameDialogBuilder.setPositiveButton(AddDialogBtn, null);
-//        _renameDialogBuilder.setPositiveButton(AddDialogBtn, new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//
-//                String number = _numberRenameDialog.getText().toString();
-//                int numberInt;
-//                if(number.equals("")) numberInt = 0;
-//                else numberInt = Integer.valueOf(number);
-//
-//                    Sportsman sportsman = new Sportsman(numberInt, _nameRenameDialog.getText().toString(),
-//                            Integer.valueOf(_birthdayRenameDialog.getText().toString()), _countryRenameDialog.getText().toString(), _spinnerOfGroupRename.getSelectedItem().toString());
-//
-//                    if (_renameRecyclerView == _recyclerView)
-//                    {
-//                        if(ParseSportsman(numberInt, _nameRenameDialog.getText().toString(), true))
-//                        {
-//                            int color = ((ColorDrawable) _colorRenameDialog.getBackground()).getColor();
-//                            sportsman.setColor(color);
-//                            if(_recyclerViewLocalDatabaseAdapter.ChangeSportsman(sportsman, _renameSportsman))
-//                            {
-//                                saver.DeleteSportsman(_renameSportsman);
-//                                saver.SaveSportsman(sportsman);
-//                            }
-//                            else
-//                            {
-//                                Toast.makeText(getApplicationContext(),getResources().getString(R.string.participant_already_exists_in_database),Toast.LENGTH_SHORT).show();
-//                            }
-//                        }
-//                        else
-//                        {
-//                            Toast.makeText(getApplicationContext(),getResources().getString(R.string.participant_already_exists_in_database),Toast.LENGTH_SHORT).show();
-//                        }
-//                        SetStartPosition(1, _recyclerViewLocalDatabaseAdapter.getItemCount());
-//                    }
-//                    else
-//                    {
-//                        sportsman.setColor(Color.BLACK);
-//                        sportsman.setNumber(0);
-//                        if(_recyclerViewDatabaseAdapter.ChangeSportsman(sportsman, _renameSportsman))
-//                        {
-//                            mainSaver.DeleteSportsman(_renameSportsman);
-//                        }
-//                        else
-//                        {
-//                            Toast.makeText(getApplicationContext(),getResources().getString(R.string.participant_already_exists_in_database),Toast.LENGTH_SHORT).show();
-//                        }
-//
-//                        SetStartPosition(2, _recyclerViewDatabaseAdapter.getItemCount());
-//                    }
-//                    sportsman.setColor(Color.BLACK);
-//                    sportsman.setNumber(0);
-//                    sportsman.setGroup(getResources().getString(R.string.default_group));
-//                    mainSaver.SaveSportsman(sportsman);
-//                    _recyclerViewDatabaseAdapter.AddSportsman(sportsman);
-//                    _colorDialog.setBackgroundColor(Color.BLACK);
-//            }
-//        });
         _renameDialogBuilder.setNegativeButton(CancelDialogBtn, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -387,10 +294,6 @@ public class ViewPagerActivity extends AppCompatActivity
                                     saver.SaveSportsman(sportsman);
                                     isCorrectInputData = true;
                                 }
-//                                else
-//                                {
-//                                    Toast.makeText(getApplicationContext(),getResources().getString(R.string.participant_already_exists_in_database),Toast.LENGTH_SHORT).show();
-//                                }
                             }
                             else
                             {
@@ -625,7 +528,6 @@ public class ViewPagerActivity extends AppCompatActivity
         if(!getResources().getBoolean(R.bool.isTablet))
         {
             _nameOfParticipantList.setText(Html.fromHtml("<font>"  + "<big>"  + getResources().getString(R.string.participant_list_actvity_head) +  "</big>" + "</font>"));
-            //Работа с DataBaseList
             View page2 = inflater.inflate(R.layout.activity_database_list, null);
             pages.add(page2);
 
@@ -681,14 +583,12 @@ public class ViewPagerActivity extends AppCompatActivity
         List<Sportsman> sortedList;
         if(recyclerView == _recyclerView)
         {
-            //sortedList = saver.GetSportsmen(orderBy, sortState);
             sortedList = saver.SortBy(orderBy, sortState, _groupSortArray);
             _recyclerViewLocalDatabaseAdapter.SortList(sortedList);
         }
         else
         {
             sortedList = mainSaver.GetSportsmen(orderBy, sortState);
-            //sortedList = mainSaver.SortBy(orderBy, sortState, _groupSortArray);
             _recyclerViewDatabaseAdapter.SortList(sortedList);
         }
 
@@ -727,23 +627,18 @@ public class ViewPagerActivity extends AppCompatActivity
                             switch (item.getItemId())
                             {
                                 case R.id.groupSort:
-                                    //Toast.makeText(getApplicationContext(),"Сортировка списка участников по группам",Toast.LENGTH_SHORT).show();
                                     return true;
                                 case R.id.nameSort:
                                     SortTableBy(_recyclerView, "name" , item.isChecked());
-                                    //Toast.makeText(getApplicationContext(),"Сортировка списка участников по имени",Toast.LENGTH_SHORT).show();
                                     return true;
                                 case R.id.dataSort:
                                     SortTableBy(_recyclerView, "year", item.isChecked());
-                                    //Toast.makeText(getApplicationContext(),"Сортировка списка участников по дате",Toast.LENGTH_SHORT).show();
                                     return true;
                                 case R.id.countrySort:
                                     SortTableBy(_recyclerView, "country", item.isChecked());
-                                    //Toast.makeText(getApplicationContext(),"Сортировка списка участников по региону",Toast.LENGTH_SHORT).show();
                                     return true;
                                 case R.id.numberSort:
                                     SortTableBy(_recyclerView, "number", item.isChecked());
-                                    //Toast.makeText(getApplicationContext(),"Сортировка списка участников по номеру",Toast.LENGTH_SHORT).show();
                                     return true;
                                 default:
                                     return false;
@@ -771,15 +666,12 @@ public class ViewPagerActivity extends AppCompatActivity
                             {
                                 case R.id.nameSort:
                                     SortTableBy(_recyclerViewDatabase, "name", item.isChecked());
-                                    //Toast.makeText(getApplicationContext(),"Сортировка базы данных по имени",Toast.LENGTH_SHORT).show();
                                     return true;
                                 case R.id.dataSort:
                                     SortTableBy(_recyclerViewDatabase, "year", item.isChecked());
-                                    //Toast.makeText(getApplicationContext(),"Сортировка базы данных по дате",Toast.LENGTH_SHORT).show();
                                     return true;
                                 case R.id.countrySort:
                                     SortTableBy(_recyclerViewDatabase, "country", item.isChecked());
-                                    //Toast.makeText(getApplicationContext(),"Сортировка базы данных по региону",Toast.LENGTH_SHORT).show();
                                     return true;
                                 default:
                                     return false;
@@ -841,7 +733,6 @@ public class ViewPagerActivity extends AppCompatActivity
             }
         }
         _renameDialog.show();
-        //Toast.makeText(getApplicationContext(),"Редактировать участника",Toast.LENGTH_SHORT).show();
     }
 
     public void OnClickDeleteParticipant(View view)
@@ -851,7 +742,6 @@ public class ViewPagerActivity extends AppCompatActivity
         saver.DeleteSportsmen(listToDelete);
         _recyclerViewLocalDatabaseAdapter.ResetHaveMarkedFlag();
         SetStartPosition(1,_recyclerViewLocalDatabaseAdapter.getItemCount());
-        //Toast.makeText(getApplicationContext(),"Удаление участника",Toast.LENGTH_SHORT).show();
     }
 
     public void OnClickDeleteDataBAse(View view)
@@ -869,7 +759,6 @@ public class ViewPagerActivity extends AppCompatActivity
                 _recyclerViewDatabaseAdapter.RemoveSportsmen(listToDelete);
                 _recyclerViewDatabaseAdapter.ResetHaveMarkedFlag();
                 SetStartPosition(2, _recyclerViewDatabaseAdapter.getItemCount());
-                //Toast.makeText(getApplicationContext(),"Участники удалены",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -895,7 +784,6 @@ public class ViewPagerActivity extends AppCompatActivity
         _renameRecyclerView = _recyclerViewDatabase;
         _renameSportsman = sportsmanToEdit;
         _renameDialog.show();
-        //Toast.makeText(getApplicationContext(),"Редактировать участника в базе данных",Toast.LENGTH_SHORT).show();
     }
 
     public void OnClickAcceptDataBase(View view)
@@ -907,7 +795,6 @@ public class ViewPagerActivity extends AppCompatActivity
         _recyclerViewLocalDatabaseAdapter.AddSportsmen(checkedList);
         SetStartPosition(1, _recyclerViewLocalDatabaseAdapter.getItemCount());
         SetStartPosition(2, _recyclerViewDatabaseAdapter.getItemCount());
-        //Toast.makeText(getApplicationContext(),"Участники были добавлены в соревнование",Toast.LENGTH_SHORT).show();
         EmptyDataBaseCompetition();
         EmptyParticipantCompetition();
     }
@@ -1219,7 +1106,6 @@ public class ViewPagerActivity extends AppCompatActivity
         }
 
         private void SleepProgress(int floor) throws InterruptedException {
-            //TimeUnit.NANOSECONDS.sleep(1000);
             TimeUnit.MILLISECONDS.sleep(1);
         }
     }
