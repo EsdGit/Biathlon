@@ -120,4 +120,9 @@ public class RealmMegaSportsmanSaver
         RealmConfiguration configuration = realm.getConfiguration();
         Realm.deleteRealm(configuration);
     }
+
+    public void CloseDatabase()
+    {
+        realm.close();
+    }
 }

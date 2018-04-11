@@ -65,7 +65,6 @@ public class CompetitionTableAdapter extends RecyclerView.Adapter<CompetitionTab
         holder.positionTextView.setText(String.valueOf(megaSportsman.getPlace()));
         holder.timeTextView.setText(megaSportsman.getResultTime().format("%H:%M:%S"));
         holder.lagTextView.setText(megaSportsman.getLag());
-        //holder.fineTextView.setText(String.valueOf(megaSportsman.getFineCount()));
         holder.fineTextView.setText(megaSportsman.getFineCountArrString());
         holder.lapNumber = megaSportsman.getCurrentLap();
 
@@ -189,7 +188,6 @@ public class CompetitionTableAdapter extends RecyclerView.Adapter<CompetitionTab
             lagTextView = (TextView) itemView.findViewById(R.id.lagCompetitionTable);
             fineTextView = (TextView) itemView.findViewById(R.id.countFineCompetitionTable);
             _builderChooseDialog = new AlertDialog.Builder(_localContext, R.style.test);
-            //_builderChooseDialog.setTitle(_localContext.getResources().getString(R.string.dialog_choose_title));
             _builderChooseDialog.setNeutralButton(_localContext.getResources().getString(R.string.choose_color), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i)
@@ -203,7 +201,6 @@ public class CompetitionTableAdapter extends RecyclerView.Adapter<CompetitionTab
                 {
                     SportsmanDeleteEvent event = new SportsmanDeleteEvent(Integer.valueOf(numberTextView.getText().toString()),lapNumber);
                     eventBus.post(event);
-                    //Toast.makeText(_localContext, "удалить", Toast.LENGTH_SHORT).show();
                 }
             });
             _builderChooseDialog.setMessage(_localContext.getResources().getString(R.string.dialog_choose_title));
@@ -228,7 +225,6 @@ public class CompetitionTableAdapter extends RecyclerView.Adapter<CompetitionTab
                 {
                     ChangeColorEvent event = new ChangeColorEvent(color, Integer.valueOf(numberTextView.getText().toString()));
                     eventBus.post(event);
-                    //Toast.makeText(_localContext, "Выбран цвет", Toast.LENGTH_SHORT).show();
                 }
             });
             itemView.setOnLongClickListener(new View.OnLongClickListener()

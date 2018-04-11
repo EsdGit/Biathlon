@@ -89,7 +89,6 @@ public class FineAdapter extends BaseAdapter
                 _parentGridView.getChildAt(j).findViewById(R.id.button_fine).setTag(drawableTegOff);
             }
         }
-        //button.setTag(drawableTegOff);
         number.setText(sportsman);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,8 +114,6 @@ public class FineAdapter extends BaseAdapter
                             }
                         }
                     }
-//                    view.findViewById(R.id.button_fine).setBackground(_context.getResources().getDrawable(R.drawable.background_fine_button_off));
-//                    view.findViewById(R.id.button_fine).setTag(drawableTegOff);
                 }
                 else
                 {

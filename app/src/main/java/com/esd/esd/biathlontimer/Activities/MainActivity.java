@@ -1,26 +1,18 @@
 package com.esd.esd.biathlontimer.Activities;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.drawable.PaintDrawable;
-import android.net.Uri;
-import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,21 +21,11 @@ import com.esd.esd.biathlontimer.Competition;
 import com.esd.esd.biathlontimer.DatabaseClasses.RealmCompetitionSaver;
 import com.esd.esd.biathlontimer.DatabaseClasses.RealmSportsmenSaver;
 import com.esd.esd.biathlontimer.R;
-import com.esd.esd.biathlontimer.SettingsChangedEvent;
-import com.esd.esd.biathlontimer.Sportsman;
 
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
-
-import io.realm.Realm;
-import io.realm.RealmConfiguration;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,19 +34,13 @@ public class MainActivity extends AppCompatActivity {
     private TextView _nameTextView;
     private TextView _dateTextView;
     private TextView _emptyText;
-    private TableLayout _tableLayout;
     private LinearLayout _headTableLayout;
     private static MenuItem _editMenuItem;
     private static MenuItem _deleteMenuItem;
     private static MenuItem _sortNameMenuItem;
     private static MenuItem _sortDataMenuItem;
-    private int _counterMarkedCompetition;
 
     private RecyclerView _recyclerView;
-
-    private boolean _haveMarkedCompetition = false;
-    private boolean _isFirstLoad = true;
-
 
     private static CompetitionAdapter competitionAdapter;
 
@@ -75,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().setTitle((Html.fromHtml("<font color=\"#FFFFFF\">"  + "<big>" + getResources().getString(R.string.main_activity_head) + "</big>" + "</font>")));
-//        _tableLayout = (TableLayout)findViewById(R.id.table);
         _nameTextView = (TextView) findViewById(R.id.CompetitionsNameTextView);
         _dateTextView = (TextView) findViewById(R.id.CompetitionsDateTextView);
         _emptyText = (TextView) findViewById(R.id.emptyListTextView);
@@ -87,9 +62,6 @@ public class MainActivity extends AppCompatActivity {
         _recyclerView.setAdapter(competitionAdapter);
         _recyclerView.setItemAnimator(new DefaultItemAnimator());
         _recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-//        _eventBus = EventBus.getDefault();
-//        _eventBus.register(this);
         saver.Dispose();
     }
 
@@ -99,30 +71,12 @@ public class MainActivity extends AppCompatActivity {
        EmptyListCompetition();
     }
 
-//    @Subscribe
-//    public void SettinsChanged(final SettingsChangedEvent event)
-//    {
-//        _tableLayout.removeAllViews();
-//        Competition[] localArr = _saver.GetAllCompetitions(DatabaseProvider.DbCompetitions.COLUMN_COMPETITION_DATE);
-//        _competitions = new Competition[localArr.length];
-//        for (int i = 0; i < localArr.length; i++)
-//        {
-//            _competitions[i] = localArr[i];
-//            AddCompetitionRow(localArr[i]);
-//        }
-//    }
-
-
-
     public void OnClick(View view)
     {
         Intent settingPager = new Intent(this, SettingsActivity.class);
         settingPager.putExtra("isEditMode", "false");
         startActivity(settingPager);
         this.finish();
-
-//        Intent finalPage = new Intent(this, FinalActivity.class);
-//        startActivity(finalPage);
     }
 
     public void OnClickDeleteCompetition()
@@ -190,11 +144,9 @@ public class MainActivity extends AppCompatActivity {
         {
             case R.id.mainMenuNameSort:
                 SortByName(item.isChecked());
-                Toast.makeText(getApplicationContext(),"Сортировка по названию", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.mainMenuDataSort:
                 competitionAdapter.SortByDate();
-                Toast.makeText(getApplicationContext(),"Сортировка по дате", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.mainEditCompetition:
                 OnClickEditCompetition();

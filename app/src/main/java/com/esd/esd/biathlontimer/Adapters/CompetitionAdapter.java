@@ -148,7 +148,6 @@ public class CompetitionAdapter extends RecyclerView.Adapter<CompetitionAdapter.
             _haveMarkedCompetition = true;
             _countMarkedCompetitions++;
             competition.setChecked(true);
-            //ViewPagerActivity.SetEditPosition(1);
             MainActivity.SetEditPosition();
             notifyDataSetChanged();
             return false;

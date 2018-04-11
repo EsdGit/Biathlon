@@ -171,16 +171,13 @@ public class FinalActivity extends AppCompatActivity {
         {
             case R.id.action_bar_final_activity_place_sort:
                 SortBy("_place", item.isChecked());
-                //Toast.makeText(getApplicationContext(),"Сортировка по месту",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_bar_final_activity_name_sort:
                 SortBy("name", item.isChecked());
-                //Toast.makeText(getApplicationContext(),"Сортировка по имени",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_bar_final_activity_save:
                 Intent intentFolders = new Intent(this, FolderPicker.class);
                 startActivityForResult(intentFolders,1);
-                //Toast.makeText(getApplicationContext(),"Сохранить файл",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_bar_final_activity_send:
                 //Toast.makeText(getApplicationContext(),"Отправка",Toast.LENGTH_SHORT).show();
@@ -193,7 +190,6 @@ public class FinalActivity extends AppCompatActivity {
                 intent.setPackage("com.whatsapp");
                 intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
                 startActivity(Intent.createChooser(intent, "Выбор"));
-                //Toast.makeText(getApplicationContext(),"Отправка через WhatsApp",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_bar_final_activity_send_by_mail:
                 Intent intent1 = new Intent(Intent.ACTION_SEND);
@@ -202,7 +198,6 @@ public class FinalActivity extends AppCompatActivity {
                 intent1.setPackage("com.google.android.gm");
                 intent1.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file1));
                 startActivity(Intent.createChooser(intent1, "Выбор"));
-                //Toast.makeText(getApplicationContext(),"Отправка через Mail",Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.action_bar_final_activity_send_by_googledrive:
@@ -212,8 +207,6 @@ public class FinalActivity extends AppCompatActivity {
                 driveIntent.setPackage("com.google.android.apps.docs");
                 driveIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(fileExc));
                 startActivity(Intent.createChooser(driveIntent, "Выбор"));
-
-                //Toast.makeText(getApplicationContext(),"GoogleDrive",Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.action_bar_final_activity_group_sort:
@@ -245,6 +238,7 @@ public class FinalActivity extends AppCompatActivity {
             RealmMegaSportsmanSaver saver = new RealmMegaSportsmanSaver(getApplicationContext(), "LAP"+i+_currentCompetition.getNameDateString());
             _arrayMegaSportsman[i] = saver.GetSportsmen(sortBy, order);
             adapter.get(i).SortList(_arrayMegaSportsman[i]);
+            saver.CloseDatabase();
         }
 
     }
@@ -269,10 +263,8 @@ public class FinalActivity extends AppCompatActivity {
                 public boolean onMenuItemActionExpand(MenuItem menuItem)
                 {
                     String name = String.valueOf(item.getTitle());
-                    //Если группа выбрана
                     if(item.isChecked())
                     {
-                        //Если группа была отменена
                         item.setChecked(false);
                         if(_groupSortArray.contains(name))
                         {
@@ -313,6 +305,7 @@ public class FinalActivity extends AppCompatActivity {
                 RealmMegaSportsmanSaver saver = new RealmMegaSportsmanSaver(getApplicationContext(), "LAP"+i+_currentCompetition.getNameDateString());
                 List<MegaSportsman> localList = saver.SortByGroup(_groupSortArray);
                 adapter.get(i).SortList(localList);
+                saver.CloseDatabase();
             }
         }
     }
@@ -329,6 +322,7 @@ public class FinalActivity extends AppCompatActivity {
                 RealmMegaSportsmanSaver saver = new RealmMegaSportsmanSaver(getApplicationContext(), "LAP"+i+_currentCompetition.getNameDateString());
                 _arrayMegaSportsman[i] = saver.GetSportsmen("_place",true);
                 adapter.add(new FinalActivityAdapter(_arrayMegaSportsman[i]));
+                saver.CloseDatabase();
             }
             return null;
         }

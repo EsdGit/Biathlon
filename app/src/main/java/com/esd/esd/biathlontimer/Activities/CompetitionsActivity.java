@@ -143,7 +143,6 @@ public class CompetitionsActivity extends AppCompatActivity {
         {
             View page2 = inflater.inflate(R.layout.activity_competition_tables, null);
             pages.add(page2);
-            //_containerTables = (LinearLayout) page2.findViewById(R.id.containerTablesCompetition);
             _lastTable = (TableLayout) page2.findViewById(R.id.tableLast);
             _currentRound = (TextView) page2.findViewById(R.id.currentRound);
             _timerParticipantTable = (TextView) page2.findViewById(R.id.competitionTimer);
@@ -193,7 +192,6 @@ public class CompetitionsActivity extends AppCompatActivity {
                         {
                             _currentRecyclerView = _arrayRecycleView.get(lapNumber);
                             _currentTable = lapNumber;
-                            //_currentRecyclerView.getAdapter().notifyDataSetChanged();
                             runOnUiThread(new Runnable()
                             {
                                 @Override
@@ -264,7 +262,6 @@ public class CompetitionsActivity extends AppCompatActivity {
                     startActivity(intent);
                     CompetitionsActivity.this.finish();
                 }
-                //Toast.makeText(getApplicationContext(), "Завершить соревнование", Toast.LENGTH_SHORT).show();
             }
         });
         _timerDialogBuilder.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
@@ -278,6 +275,7 @@ public class CompetitionsActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 if (_competitionState == CompetitionState.NotStarted) return;
                 if(serviceIntent != null) TestService.ResetService();
+
                 TestService.AddSportsmanToCompetitionAdapter(null);
                 for (int j = 0; j < lapsCount; j++) {
                     _arrayMegaSportsmen[j].clear();
@@ -308,7 +306,6 @@ public class CompetitionsActivity extends AppCompatActivity {
                 timeCountDown.minute = Integer.valueOf(_currentCompetition.getTimeToStart().split(":")[0]);
                 timeCountDown.second = Integer.valueOf(_currentCompetition.getTimeToStart().split(":")[1]);
                 SetTime(timeCountDown,0,true);
-                Toast.makeText(getApplicationContext(), "Сброс", Toast.LENGTH_SHORT).show();
             }
         });
         _timerDialogBuilder.setCancelable(false);
@@ -327,7 +324,7 @@ public class CompetitionsActivity extends AppCompatActivity {
         {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                int fineCount = _fineAdapter.getCurrentCountFine() - _megaSportsmen[_currentSportsman].getFineCount();//_dialogSeekBar.getProgress();
+                int fineCount = _fineAdapter.getCurrentCountFine() - _megaSportsmen[_currentSportsman].getFineCount();
                 int fineSeconds = Integer.valueOf(_currentCompetition.getFineTime().split(":")[1]);
                 int fineMinutes = Integer.valueOf(_currentCompetition.getFineTime().split(":")[0]);
                 android.text.format.Time fineTime = new android.text.format.Time();
@@ -368,7 +365,6 @@ public class CompetitionsActivity extends AppCompatActivity {
             }
         }
         _currentRound.setText(_currentRound.getText() + " - " + Integer.toString(_currentTable + 1));
-        //_tableAdapter = new CompetitionTableAdapter(this, this.getFragmentManager());
         if(!getResources().getBoolean(R.bool.isTablet))
         {
             _table.setAdapter(_tableAdapter);
@@ -395,6 +391,7 @@ public class CompetitionsActivity extends AppCompatActivity {
     {
         int number = sportsmanDeleteEvent.GetSportsmanNumber();
         int lap = sportsmanDeleteEvent.GetLapNumber();
+        boolean wasDeleted = false;
         for(int i = lap - 1; i < _arrayMegaSportsmen.length; i++)
         {
             for(int j = 0; j < _arrayMegaSportsmen[i].size(); j++)
@@ -402,13 +399,19 @@ public class CompetitionsActivity extends AppCompatActivity {
                 if(number == _arrayMegaSportsmen[i].get(j).getNumber())
                 {
                     _arrayMegaSportsmen[i].remove(j);
+                    for(int k = j; k < _arrayMegaSportsmen[i].size(); k++)
+                    {
+                        _arrayMegaSportsmen[i].get(k).setPlace(_arrayMegaSportsmen[i].get(k).getPlace() - 1);
+                    }
                     break;
                 }
             }
         }
 
-        for(int i = 0; i < _megaSportsmen.length; i++) {
-            if (number == _megaSportsmen[i].getNumber()) {
+        for(int i = 0; i < _megaSportsmen.length; i++)
+        {
+            if (number == _megaSportsmen[i].getNumber())
+            {
                 _megaSportsmen[i].setCurrentLap(lap - 1);
                 if (!getResources().getBoolean(R.bool.isTablet))
                     TestService.RemoveSportsman(_megaSportsmen[i]);
@@ -421,7 +424,12 @@ public class CompetitionsActivity extends AppCompatActivity {
             }
         }
         TestService.ChangeSportsmanLap(number, lap-1);
-        GetLag(lap -1);
+        // ТУТ НЕКОРРЕКТНО РАБОТАЕТ!!! НЕОБХОДИМО ПЕРЕСЧИТЫВАТЬ ПОЗИЦИЮ
+        for (int i = 0; i< lapsCount; i++)
+        {
+            GetLag(i);
+        }
+        //GetLag(lap -1);
         TestService.SetFinish(number, false);
 
     }
@@ -545,7 +553,6 @@ public class CompetitionsActivity extends AppCompatActivity {
 
     private void AddRowZeroColumn(MegaSportsman megaSportsman, String[] textRow)
     {
-        //int width = _nameParticipant.getMeasuredWidth() + _numberParticipant.getMeasuredHeight() + _positionParticipant.getMeasuredHeight() + _timeParticipant.getMeasuredHeight() + _lagParticipant.getMeasuredHeight();
         final TableRow newRow = new TableRow(this);
         newRow.setWeightSum(100);
         final TextView newTextView = new TextView(this);
@@ -592,25 +599,15 @@ public class CompetitionsActivity extends AppCompatActivity {
         {
             TextView NumberStr = (TextView) view.findViewById(R.id.numberParticipantMyButton);
             TextView LapStr = (TextView) view.findViewById(R.id.lapParticipantMyButton);
-            //FrameLayout finishedLayout = (FrameLayout)view.findViewById(R.id.second_layout);
             int number = Integer.valueOf(NumberStr.getText().toString());
             int lap = Integer.valueOf(LapStr.getText().toString());
             int currentSportsmen = 0;
             boolean isFinished;
-//            for(int i = 0; i < _megaSportsmen.length; i ++)
-//            {
-//                if (number == _megaSportsmen[i].getNumber())
-//                {
-//                    isFinished = _megaSportsmen[i].getFinished();
-//                    currentSportsmen = i;
-//                }
-//            }
             isFinished = TestService.IsFinished(number);
             if(!isFinished)
             {
                 MegaSportsman localSportsman = null;
                 TestService.ChangeSportsmanLap(number, lap + 1);
-                //_viewAdapter.ChangeSportsmanLap(number, lap + 1);
                 android.text.format.Time newTime = new android.text.format.Time();
                 for (int i = 0; i < _megaSportsmen.length; i++) {
                     if (number == _megaSportsmen[i].getNumber())
@@ -620,8 +617,6 @@ public class CompetitionsActivity extends AppCompatActivity {
                         newTime.second = TestService.GetCurrentTime().second - _megaSportsmen[i].getStartTime().second;
                         newTime.normalize(false);
                         localSportsman = new MegaSportsman(_megaSportsmen[i]);
-                        // _megaSportsmen[i].setFineTime(null);
-                        // _megaSportsmen[i].setFineCount(0);
                         break;
                     }
                 }
@@ -639,9 +634,6 @@ public class CompetitionsActivity extends AppCompatActivity {
                     if (_currentTable == lap)
                     {
                         TestService.AddSportsmanToCompetitionAdapter(_arrayMegaSportsmen[lap]);
-//                        _tableAdapter.ClearList();
-//                        _tableAdapter.AddSportsmen(_arrayMegaSportsmen[lap]);
-//                        _tableAdapter.notifyDataSetChanged();
                     }
                 }
                 else
@@ -702,31 +694,6 @@ public class CompetitionsActivity extends AppCompatActivity {
             AddRowZeroColumn(megaSportsman, null);
         }
     }
-
-
-
-//    private void TimerStartPosition()
-//    {
-//        if(_currentCompetition.getStartType().equals(getResources().getString(R.string.item_type_mas_start)))
-//        {
-//            _currentInterval.second = 0;
-//            _currentInterval.minute = 0;
-//        }
-//        else
-//        {
-//            _currentInterval.second = Integer.valueOf(_currentCompetition.getInterval().split(":")[1]);
-//            _currentInterval.minute = Integer.valueOf(_currentCompetition.getInterval().split(":")[0]);
-//        }
-//
-//
-//        _timeNextParticipant.second = _currentInterval.second;
-//        _timeNextParticipant.minute = _currentInterval.minute;
-//
-//        _competitionTimer.setTextColor(getResources().getColor(R.color.timerStart));
-//        _timerParticipantTable.setTextColor(getResources().getColor(R.color.timerStart));
-//        _competitionTimer.setText(_currentCompetition.getTimeToStart());
-//        _timerParticipantTable.setText(_currentCompetition.getTimeToStart());
-//    }
 
     private void GetPlace(MegaSportsman sportsman, int lap)
     {
@@ -801,9 +768,6 @@ public class CompetitionsActivity extends AppCompatActivity {
         {
             _currentTable++;
             TestService.AddSportsmanToCompetitionAdapter(_arrayMegaSportsmen[_currentTable]);
-//            _tableAdapter.ClearList();
-//            _tableAdapter.AddSportsmen(_arrayMegaSportsmen[_currentTable]);
-//            _tableAdapter.notifyDataSetChanged();
             _currentRound.setText(getResources().getString(R.string.current_round) + " - " + Integer.toString(_currentTable + 1));
         }
     }
@@ -814,9 +778,6 @@ public class CompetitionsActivity extends AppCompatActivity {
         {
             _currentTable--;
             TestService.AddSportsmanToCompetitionAdapter(_arrayMegaSportsmen[_currentTable]);
-//            _tableAdapter.ClearList();
-//            _tableAdapter.AddSportsmen(_arrayMegaSportsmen[_currentTable]);
-//            _tableAdapter.notifyDataSetChanged();
             _currentRound.setText(getResources().getString(R.string.current_round) + " - " + Integer.toString(_currentTable + 1));
         }
     }
@@ -829,6 +790,7 @@ public class CompetitionsActivity extends AppCompatActivity {
             megaSportsmanSaver.DeleteTable();
             megaSportsmanSaver = new RealmMegaSportsmanSaver(this, "LAP"+i+_currentCompetition.getNameDateString());
             megaSportsmanSaver.SaveSportsmen(_arrayMegaSportsmen[i]);
+            megaSportsmanSaver.CloseDatabase();
         }
         RealmCompetitionSaver compSaver = new RealmCompetitionSaver(this, "COMPETITIONS");
         compSaver.DeleteCompetition(_currentCompetition);
@@ -902,13 +864,11 @@ public class CompetitionsActivity extends AppCompatActivity {
             _gridView.setEnabled(false);
             _isPaused = true;
         }
-        //Toast.makeText(getApplicationContext(),"Пауза",Toast.LENGTH_SHORT).show();
     }
 
     public void stopBtnClick(View view)
     {
         _timerDialog.show();
-        //Toast.makeText(getApplicationContext(),"Стоп",Toast.LENGTH_SHORT).show();
     }
 
 
@@ -997,7 +957,6 @@ public class CompetitionsActivity extends AppCompatActivity {
             for(int i = 0; i<list.size(); i++)
             {
                 _megaSportsmen[i] = new MegaSportsman(list.get(i));
-                //_megaSportsmen[i].setLapsCount(lapsCount);
                 publishProgress(i);
                 try {
                     TimeUnit.MILLISECONDS.sleep(2);

@@ -16,17 +16,13 @@ import android.widget.Toast;
 
 import com.esd.esd.biathlontimer.Competition;
 import com.esd.esd.biathlontimer.DatabaseClasses.RealmCompetitionSaver;
-import com.esd.esd.biathlontimer.DatabaseClasses.RealmMegaSportsmanSaver;
 import com.esd.esd.biathlontimer.DatabaseClasses.RealmSportsmenSaver;
-import com.esd.esd.biathlontimer.MegaSportsman;
 import com.esd.esd.biathlontimer.R;
-import com.esd.esd.biathlontimer.SettingsChangedEvent;
 import com.esd.esd.biathlontimer.SettingsFragment;
 import com.esd.esd.biathlontimer.Sportsman;
 
 import org.greenrobot.eventbus.EventBus;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -152,8 +148,6 @@ public class SettingsActivity extends PreferenceActivity
                     realmSaver.SaveSportsmen(sportsmenList);
                     realmSaver.Dispose();
                     saver.Dispose();
-//                    SettingsChangedEvent event = new SettingsChangedEvent();
-//                    _eventBus.post(event);
                     this.finish();
                     Intent mainActInt = new Intent(this, MainActivity.class);
                     startActivity(mainActInt);
