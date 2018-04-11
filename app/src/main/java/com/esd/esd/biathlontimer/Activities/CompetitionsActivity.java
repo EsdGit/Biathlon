@@ -275,6 +275,7 @@ public class CompetitionsActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 if (_competitionState == CompetitionState.NotStarted) return;
                 if(serviceIntent != null) TestService.ResetService();
+
                 TestService.AddSportsmanToCompetitionAdapter(null);
                 for (int j = 0; j < lapsCount; j++) {
                     _arrayMegaSportsmen[j].clear();

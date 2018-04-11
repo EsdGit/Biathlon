@@ -16,6 +16,7 @@ import android.text.format.Time;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.esd.esd.biathlontimer.Adapters.CompetitionTableAdapter;
 import com.esd.esd.biathlontimer.Adapters.GridViewAdapter;
@@ -56,7 +57,9 @@ public class TestService extends Service {
 
      static int ms;
 
+    private MyTimerTask _task;
     private static Notification.Builder builder;
+    private static boolean _notificationFlag = false;
     private static NotificationManager notificationManager;
 
     @Override
@@ -73,7 +76,6 @@ public class TestService extends Service {
                 .setSmallIcon(R.drawable.launcher).setContentTitle(getApplicationContext().getResources().getString(R.string.app_name));
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, CompetitionsActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP), PendingIntent.FLAG_UPDATE_CURRENT);
         builder.setContentIntent(pendingIntent);
-
     }
 
     Handler handler;
@@ -123,7 +125,6 @@ public class TestService extends Service {
                 try {
                     Thread.sleep(10);
                 } catch (InterruptedException ex) {
-
                 }
             }
         }
@@ -161,8 +162,9 @@ public class TestService extends Service {
                 @Override
                 public void run()
                 {
-                    MyTimerTask task = new MyTimerTask();
-                    task.execute(ms);
+                    _task = new MyTimerTask();
+                    _task.execute(ms);
+                    _notificationFlag = false;
                 }
             };
             @Override
@@ -220,13 +222,16 @@ public class TestService extends Service {
     @Override
     public void onDestroy()
     {
-        if(_timer != null) _timer.cancel();
-        if(_countDownTimer != null) _countDownTimer.cancel();
+        if(_timer != null)
+            _timer.cancel();
+        if(_countDownTimer != null)
+            _countDownTimer.cancel();
         if(_viewAdapter != null) _viewAdapter.ClearList();
+        _notificationFlag = true;
+        thread.interrupt();
         ms = 0;
         _number = 0;
         _currentTime = new Time();
-        thread.interrupt();
         notificationManager.cancelAll();
         CompetitionsActivity.SetTime(_currentTime, ms, true);
         super.onDestroy();
@@ -439,6 +444,7 @@ public class TestService extends Service {
         protected void onPostExecute(Integer integer)
         {
             super.onPostExecute(integer);
+            if(_notificationFlag) return;
             builder.setContentText(_currentTime.format("%H:%M:%S"));
             notificationManager.notify(1, builder.build());
             CompetitionsActivity.SetTime(_currentTime, ms, false);
