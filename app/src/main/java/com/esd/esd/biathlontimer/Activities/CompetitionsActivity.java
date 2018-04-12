@@ -27,7 +27,6 @@ import android.widget.GridView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.esd.esd.biathlontimer.Adapters.FineAdapter;
 import com.esd.esd.biathlontimer.ChangeColorEvent;
 import com.esd.esd.biathlontimer.Competition;
@@ -267,10 +266,9 @@ public class CompetitionsActivity extends AppCompatActivity {
         _timerDialogBuilder.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getApplicationContext(), "Отмена", Toast.LENGTH_SHORT).show();
             }
         });
-        _timerDialogBuilder.setNeutralButton(getResources().getString(R.string.reset), new DialogInterface.OnClickListener() {
+        _timerDialogBuilder.setNeutralButton(getResources().getString(R.string.reset_title), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (_competitionState == CompetitionState.NotStarted) return;

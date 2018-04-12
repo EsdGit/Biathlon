@@ -21,7 +21,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.esd.esd.biathlontimer.Competition;
 import com.esd.esd.biathlontimer.DatabaseClasses.RealmCompetitionSaver;
 import com.esd.esd.biathlontimer.DatabaseClasses.RealmMegaSportsmanSaver;
@@ -180,7 +179,6 @@ public class FinalActivity extends AppCompatActivity {
                 startActivityForResult(intentFolders,1);
                 break;
             case R.id.action_bar_final_activity_send:
-                //Toast.makeText(getApplicationContext(),"Отправка",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.action_bar_final_activity_send_by_whatsapp:
 

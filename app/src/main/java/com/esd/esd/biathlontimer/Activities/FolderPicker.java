@@ -18,14 +18,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.esd.esd.biathlontimer.Adapters.CompetitionAdapter;
+import android.widget.TextView;
+
 import com.esd.esd.biathlontimer.R;
 
 import java.io.File;
@@ -38,15 +34,12 @@ import java.util.List;
 
 public class FolderPicker extends AppCompatActivity
 {
-    private List<String> _arrayDir;
     private static FolderAdapter _adapter;
     private MenuItem _accept;
     private MenuItem _cancel;
 
     RecyclerView _recyclerView;
     static TextView _pathText;
-    Button _acceptButton;
-    Button _declineButton;
 
     static String _currentPath;
 

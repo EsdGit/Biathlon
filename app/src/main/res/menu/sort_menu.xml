@@ -10,7 +10,7 @@
     <item android:title="@string/participant_list_year_sort"
         android:id="@+id/dataSort"
         android:checked="false"/>
-    <item android:title="@string/participant_list_group_sort"
+    <item android:title="@string/group_sort_title"
           android:id="@+id/groupSort"
           android:checked="false">
             <menu >

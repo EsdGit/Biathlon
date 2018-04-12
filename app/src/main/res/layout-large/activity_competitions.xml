@@ -191,7 +191,7 @@
                     android:gravity="center"
                     android:textColor="#000000"
                     android:textSize="@dimen/title_text_size_double_table"
-                    android:text="@string/count_fine"
+                    android:text="@string/fine"
                     android:textStyle="bold"
                     android:background="#ffffff"
                     android:layout_weight="14"

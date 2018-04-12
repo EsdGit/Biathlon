@@ -12,26 +12,20 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.SwitchPreference;
-import android.support.v7.widget.SwitchCompat;
 import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.NumberPicker;
-import android.widget.Switch;
 import android.widget.Toast;
 
 import com.esd.esd.biathlontimer.Activities.ViewPagerActivity;
 
-
-import org.apache.poi.sl.usermodel.Resources;
 import org.apache.poi.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.zip.Inflater;
 
 
 public class SettingsFragment extends PreferenceFragment implements DatePickerDialog.OnDateSetListener
@@ -288,7 +282,7 @@ public class SettingsFragment extends PreferenceFragment implements DatePickerDi
             @Override
             public void onClick(DialogInterface dialog, int which)
             {
-                Toast.makeText(getActivity(),"Правильный выбор, чувак)",Toast.LENGTH_SHORT).show();
+
             }
         });
         _dialogDelGroup = _dialogBuilderDelGroup.create();

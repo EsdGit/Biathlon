@@ -17,7 +17,7 @@
 
 
     <item
-        android:title="@string/final_activity_group_sort"
+        android:title="@string/group_sort_title"
         android:id="@+id/action_bar_final_activity_group_sort"
         android:showAsAction="never"
         android:orderInCategory="100"

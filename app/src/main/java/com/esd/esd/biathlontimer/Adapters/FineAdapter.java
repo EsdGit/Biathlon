@@ -2,7 +2,6 @@ package com.esd.esd.biathlontimer.Adapters;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,13 +11,9 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.esd.esd.biathlontimer.MegaSportsman;
 import com.esd.esd.biathlontimer.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by NIL_RIMS_4 on 07.02.2017.
@@ -95,7 +90,6 @@ public class FineAdapter extends BaseAdapter
             public void onClick(View view)
             {
                 if((Integer.valueOf(number.getText().toString()) < _fineCount)) return;
-                Toast.makeText(_context,number.getText().toString(),Toast.LENGTH_SHORT).show();
                 Button localButton = (Button) view.findViewById(R.id.button_fine);
                 Log.i("Teg", localButton.getTag().toString());
                 Log.i("Teg",drawableTegOn.toString());
